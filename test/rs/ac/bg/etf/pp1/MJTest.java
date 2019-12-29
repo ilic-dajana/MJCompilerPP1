@@ -14,6 +14,7 @@ import org.apache.log4j.xml.DOMConfigurator;
 import rs.ac.bg.etf.pp1.sym;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
 
+
 public class MJTest {
 
 	static {
