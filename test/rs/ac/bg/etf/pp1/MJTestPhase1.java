@@ -11,11 +11,11 @@ import java_cup.runtime.Symbol;
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
 
-import rs.ac.bg.etf.pp1.sym;
+import rs.ac.bg.etf.pp1.sym_old;
 import rs.ac.bg.etf.pp1.util.Log4JUtils;
 
 
-public class MJTest {
+public class MJTestPhase1 {
 
 	static {
 		DOMConfigurator.configure(Log4JUtils.instance().findLoggerConfigFile());
@@ -23,7 +23,7 @@ public class MJTest {
 	}
 	
 	public static void main(String[] args) throws IOException {
-		Logger log = Logger.getLogger(MJTest.class);
+		Logger log = Logger.getLogger(MJTestPhase1.class);
 		Reader br = null;
 		try {
 			
@@ -34,7 +34,7 @@ public class MJTest {
 			
 			Yylex lexer = new Yylex(br);
 			Symbol currToken = null;
-			while ((currToken = lexer.next_token()).sym != sym.EOF) {
+			while ((currToken = lexer.next_token()).sym != sym_old.EOF) {
 				if (currToken != null && currToken.value != null)
 					log.info(currToken.toString() + " " + currToken.value.toString());
 			}

@@ -73,6 +73,10 @@ nonterminal VarDecl;
 nonterminal VarDeclList;
 nonterminal VarNames;
 nonterminal VarIdent;
+nonterminal EnumDecl;
+nonterminal EnumIdent;
+nonterminal EnumInit;
+nonterminal EnumMember;
 nonterminal MethodDecl;
 nonterminal MethodDeclList;
 nonterminal ReturnType;
@@ -119,7 +123,7 @@ ProgIdent ::= (ProgramIdent) IDENT:progname;
 
 DeclList ::= (DeclarationList) DeclList Declaration
 						  |
-						  (EmptyDeclarationList)    /* epsilon */ ;	
+						  (EmptyDeclarationList)    /*   epsilon    */  ;	
 						  
 Declaration ::= (ConstDeclaration) ConstDecl
 								  |
@@ -133,22 +137,24 @@ Type ::= (Type) IDENT:type;
 
 ConstList ::= (MultipleConstList) ConstList COMMA Constant
 							 |
-							 ( OneConstList) Constant;
+							 ( OneConstList) Constant ;
 							 
 							 
 Constant ::= (ConstNumber) IDENT:numIdent ASSIGN NUMBER:num
 							|
 							(ConstBool) IDENT:boolIdent ASSIGN BOOLCONST:val
 							|
-							(ConstChar) IDENT:charIdent ASSIGN CHARCONST:c;
+							(ConstChar) IDENT:charIdent ASSIGN CHARCONST:c ;
 
 VarDecl ::= (VariableDeclaration) Type VarNames SEMICOLON;
 
 VarDeclList ::=  (MultipleVariableDeclarations) VarDeclList VarDecl
 								   |
-								   (EmptyVariableDeclarations)  /*epsilon*/ ;
+								   (EmptyVariableDeclarations)  /*  epsilon  */ ;
 								   
-VarNames ::= (MultipleVariableNames) VarNames COMMA VarIdent;
+VarNames ::= (MultipleVariableNames) VarNames COMMA VarIdent
+							    |
+							    (OneVariableName) VarIdent;
 
 VarIdent ::= (VariableIdent) IDENT:var
 							|
@@ -172,7 +178,7 @@ MethodDecl ::= (MethodDeclaration) ReturnType MethodIdent FromParams VarDeclList
 
 MethodDeclList ::= (MultipleMethodDeclarations) MethodDeclList MethodDecl
 											|
-											(EmptyMethodDeclaration) /* epsilon */;
+											(EmptyMethodDeclaration) /* epsilon */ ;
 											
 ReturnType ::= (NonVoidType) Type
 								 |
@@ -192,12 +198,13 @@ OneFormParam ::= (UsualParameter) Type IDENT:param
 											|
 											(NumberParameter) Type IDENT:param ASSIGN NUMBER:n
 											|
-											(CharParameter)  Type IDENT:param ASSIGN CHAR:c
+											(CharParameter)  Type IDENT:param ASSIGN CHARCONST:c
 											|
 											(BoolParameter) Type IDENT:param ASSIGN BOOLCONST:b;
+											
 Statements ::= (MultipleStatements) Statements  Statement
 								  |
-								  (EmptyStatements) /* epsilon */;
+								  (EmptyStatements) /* epsilon */ ;
 								  											
 Statement  ::=  (DesignatorStatement) DesignatorStatement SEMICOLON
 								  |
@@ -265,7 +272,7 @@ ForIdent ::= (ForIdent) FOR;
 
 ForInit ::= (NonEmptyForInit) DesignatorStatement
 						|
-						(EmptyForInit) /* epsilon */ ;
+					   (EmptyForInit) /* epsilon */ ;
 						
 ForCondition ::= (NonEmptyForCondition) Condition
 									 |
@@ -279,7 +286,7 @@ Condition ::= (MultipleCondition) Condition OR CondTerm
 							  |
 							  (OneCondition) CondTerm;
 							  
-CondTerm ::= (MultipleConditionTerms) Cond Term AND CondFact
+CondTerm ::= (MultipleConditionTerms) CondTerm AND CondFact
 							   |
 							   (OneConditionTerm) CondFact;
 
@@ -316,13 +323,13 @@ Factor ::= (DesignatorF) Designator
 					  |
 					  (FunctionCallF) FunctionCall
 					  |
-					  (ComplexExpression) LPAREN Expr RPAREN;
+					  (ComplexExpressionF) LPAREN Expr RPAREN;
 
 ArrayInitList ::= (MultipleArrayInit) ArrayInitList COMMA Dummy Expr
 									|
 									(OneArrayInit) Dummy Expr;
 					  			   
-Dummy ::= (Dummy) ;
+Dummy ::= (Dummy)  ;
 
 Addop ::= (Plus) PLUS
 					   |					 

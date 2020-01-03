@@ -670,75 +670,75 @@ class Yylex implements java_cup.runtime.Scanner {
 
       switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
         case 5: 
-          { return new_symbol(sym.PLUS, yytext());
+          { return new_symbol(sym_old.PLUS, yytext());
           }
         case 47: break;
         case 16: 
-          { return new_symbol(sym.RPAREN, yytext());
+          { return new_symbol(sym_old.RPAREN, yytext());
           }
         case 48: break;
         case 34: 
-          { return new_symbol(sym.FOR, yytext());
+          { return new_symbol(sym_old.FOR, yytext());
           }
         case 49: break;
         case 13: 
-          { return new_symbol(sym.COMMA, yytext());
+          { return new_symbol(sym_old.COMMA, yytext());
           }
         case 50: break;
         case 12: 
-          { return new_symbol(sym.SEMICOLON, yytext());
+          { return new_symbol(sym_old.SEMICOLON, yytext());
           }
         case 51: break;
         case 33: 
-          { return new_symbol(sym.NEW, yytext());
+          { return new_symbol(sym_old.NEW, yytext());
           }
         case 52: break;
         case 18: 
-          { return new_symbol(sym.RBRACE, yytext());
+          { return new_symbol(sym_old.RBRACE, yytext());
           }
         case 53: break;
         case 39: 
-          { return new_symbol(sym.ELSE, yytext());
+          { return new_symbol(sym_old.ELSE, yytext());
           }
         case 54: break;
         case 23: 
-          { return new_symbol(sym.IF, yytext());
+          { return new_symbol(sym_old.IF, yytext());
           }
         case 55: break;
         case 14: 
-          { return new_symbol(sym.DOT, yytext());
+          { return new_symbol(sym_old.DOT, yytext());
           }
         case 56: break;
         case 9: 
-          { return new_symbol(sym.ASSIGN, yytext());
+          { return new_symbol(sym_old.ASSIGN, yytext());
           }
         case 57: break;
         case 21: 
-          { return new_symbol(sym.NUMBER, new Integer (yytext()));
+          { return new_symbol(sym_old.NUMBER, new Integer (yytext()));
           }
         case 58: break;
         case 10: 
-          { return new_symbol(sym.GRT, yytext());
+          { return new_symbol(sym_old.GRT, yytext());
           }
         case 59: break;
         case 4: 
-          { return new_symbol(sym.DIV, yytext());
+          { return new_symbol(sym_old.DIV, yytext());
           }
         case 60: break;
         case 3: 
-          { return new_symbol (sym.IDENT, yytext());
+          { return new_symbol (sym_old.IDENT, yytext());
           }
         case 61: break;
         case 6: 
-          { return new_symbol(sym.MINUS, yytext());
+          { return new_symbol(sym_old.MINUS, yytext());
           }
         case 62: break;
         case 40: 
-          { return new_symbol(sym.VOID, yytext());
+          { return new_symbol(sym_old.VOID, yytext());
           }
         case 63: break;
         case 20: 
-          { return new_symbol(sym.RBRACK, yytext());
+          { return new_symbol(sym_old.RBRACK, yytext());
           }
         case 64: break;
         case 32: 
@@ -746,23 +746,23 @@ class Yylex implements java_cup.runtime.Scanner {
           }
         case 65: break;
         case 43: 
-          { return new_symbol(sym.CONST, yytext());
+          { return new_symbol(sym_old.CONST, yytext());
           }
         case 66: break;
         case 27: 
-          { return new_symbol(sym.NOTEQ, yytext());
+          { return new_symbol(sym_old.NOTEQ, yytext());
           }
         case 67: break;
         case 30: 
-          { return new_symbol(sym.AND, yytext());
+          { return new_symbol(sym_old.AND, yytext());
           }
         case 68: break;
         case 15: 
-          { return new_symbol(sym.LPAREN, yytext());
+          { return new_symbol(sym_old.LPAREN, yytext());
           }
         case 69: break;
         case 11: 
-          { return new_symbol(sym.LESS, yytext());
+          { return new_symbol(sym_old.LESS, yytext());
           }
         case 70: break;
         case 22: 
@@ -770,35 +770,35 @@ class Yylex implements java_cup.runtime.Scanner {
           }
         case 71: break;
         case 38: 
-          { return new_symbol(sym.ENUM, yytext());
+          { return new_symbol(sym_old.ENUM, yytext());
           }
         case 72: break;
         case 8: 
-          { return new_symbol(sym.MOD, yytext());
+          { return new_symbol(sym_old.MOD, yytext());
           }
         case 73: break;
         case 7: 
-          { return new_symbol(sym.MUL, yytext());
+          { return new_symbol(sym_old.MUL, yytext());
           }
         case 74: break;
         case 42: 
-          { return new_symbol(sym.BREAK, yytext());
+          { return new_symbol(sym_old.BREAK, yytext());
           }
         case 75: break;
         case 17: 
-          { return new_symbol(sym.LBRACE, yytext());
+          { return new_symbol(sym_old.LBRACE, yytext());
           }
         case 76: break;
         case 36: 
-          { return new_symbol(sym.READ, yytext());
+          { return new_symbol(sym_old.READ, yytext());
           }
         case 77: break;
         case 24: 
-          { return new_symbol(sym.INC, yytext());
+          { return new_symbol(sym_old.INC, yytext());
           }
         case 78: break;
         case 29: 
-          { return new_symbol(sym.LESSEQ, yytext());
+          { return new_symbol(sym_old.LESSEQ, yytext());
           }
         case 79: break;
         case 1: 
@@ -806,47 +806,47 @@ class Yylex implements java_cup.runtime.Scanner {
           }
         case 80: break;
         case 19: 
-          { return new_symbol(sym.LBRACK, yytext());
+          { return new_symbol(sym_old.LBRACK, yytext());
           }
         case 81: break;
         case 28: 
-          { return new_symbol(sym.GRTEQ, yytext());
+          { return new_symbol(sym_old.GRTEQ, yytext());
           }
         case 82: break;
         case 41: 
-          { return new_symbol(sym.PRINT, yytext());
+          { return new_symbol(sym_old.PRINT, yytext());
           }
         case 83: break;
         case 35: 
-          { return new_symbol(sym.CHARCONST, new Character(yytext().charAt(1)));
+          { return new_symbol(sym_old.CHARCONST, new Character(yytext().charAt(1)));
           }
         case 84: break;
         case 45: 
-          { return new_symbol(sym.PROG, yytext());
+          { return new_symbol(sym_old.PROG, yytext());
           }
         case 85: break;
         case 44: 
-          { return new_symbol(sym.RETURN, yytext());
+          { return new_symbol(sym_old.RETURN, yytext());
           }
         case 86: break;
         case 26: 
-          { return new_symbol(sym.EQ, yytext());
+          { return new_symbol(sym_old.EQ, yytext());
           }
         case 87: break;
         case 46: 
-          { return new_symbol(sym.CONTINUE, yytext());
+          { return new_symbol(sym_old.CONTINUE, yytext());
           }
         case 88: break;
         case 31: 
-          { return new_symbol(sym.OR, yytext());
+          { return new_symbol(sym_old.OR, yytext());
           }
         case 89: break;
         case 37: 
-          { return new_symbol(sym.BOOLCONST, new Boolean(yytext()));
+          { return new_symbol(sym_old.BOOLCONST, new Boolean(yytext()));
           }
         case 90: break;
         case 25: 
-          { return new_symbol(sym.DEC, yytext());
+          { return new_symbol(sym_old.DEC, yytext());
           }
         case 91: break;
         case 2: 
@@ -857,7 +857,7 @@ class Yylex implements java_cup.runtime.Scanner {
           if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
             zzAtEOF = true;
             zzDoEOF();
-              { 	return new_symbol(sym.EOF);
+              { 	return new_symbol(sym_old.EOF);
  }
           } 
           else {

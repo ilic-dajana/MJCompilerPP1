@@ -1,6 +1,6 @@
 package rs.ac.bg.etf.pp1;
 
-public class sym {
+public class sym_old {
 	 public static final int CONST = 8;
 	  public static final int GRT = 29;
 	  public static final int GRTEQ = 30;
