@@ -1,12 +1,115 @@
+package rs.ac.bg.etf.pp1;
+
+import java_cup.runtime.*;
+import java.io.*;
+import org.apache.log4j.*;
+import rs.ac.bg.etf.pp1.ast.*;
+
+parser code {:
+		boolean errorDetected;
+		Logger log = Logger.getLogger(getClass());
+		
+		 public void report_fatal_error(String message, Object info) throws java.lang.Exception {
+    		  	done_parsing();
+      			report_error(message, info);
+    	}
+  
+ 	   public void syntax_error(Symbol cur_token) {
+    		    report_error("\nSintaksna greska", cur_token);
+    	}
+  
+    	public void unrecovered_syntax_error(Symbol cur_token) throws java.lang.Exception {
+        		report_fatal_error("Fatalna greska, parsiranje se ne moze nastaviti", cur_token);
+    	}
+    
+     	public void report_error(String message, Object info) {
+    			errorDetected = true;
+		    	StringBuilder msg = new StringBuilder(message); 
+		    	
+		    	if (info instanceof Symbol)
+		            msg.append (" na liniji ").append(((Symbol)info).left);
+		        log.error(msg.toString());
+	   }
+	   
+	   public void report_info(String message, Object info){
+	   		StringBuilder msg = new StringBuilder(message); 
+	    	if (info instanceof Symbol)
+	            msg.append (" na liniji ").append(((Symbol)info).left).append (" i koloni ").append(((Symbol)info).right);
+	        log.info(msg.toString());
+	   }
 
 
-terminal    PROG, LBRACE, RBRACE;
+:}
+
+init with {:
+	errorDetected = false;
+:}
+    
+scan with {:
+		Symbol s = this.getScanner().next_token();
+		
+		if (s != null && s.value != null) 
+			log.info(s.toString() + " " + s.value.toString());
+		return s;
+:}
+
+terminal    PROG, LBRACE, RBRACE, SEMICOLON, BREAK, ENUM, CONST, NEW, READ, FOR, CONTINUE;
+terminal    MINUS, DIV, MUL, MOD, NOTEQ, LPAREN, RPAREN, EQ. RETURN, PLUS, COMMA, PRINT, VOID;
+terminal    IF, ELSE, GRT, GRTEQ, LESS, LESSEQ, AND, OR, INC, DEC, ASSIGN, DOT, LBRACK, RBRACK; 
+terminal Integer NUMBER;
 terminal String IDENT;
+terminal Character CHARCONST;
+terminal Boolean BOOLCONST;
 
 nonterminal Program;
 nonterminal ProgIdent;
 nonterminal DeclList;
+nonterminal Declaration;
+nonterminal ConstDecl;
+nonterminal Type;
+nonterminal ConstList;
+nonterminal Constant ;
+nonterminal VarDecl;
+nonterminal VarDeclList;
+nonterminal VarNames;
+nonterminal VarIdent;
+nonterminal MethodDecl;
 nonterminal MethodDeclList;
+nonterminal ReturnType;
+nonterminal MethodIdent;
+nonterminal FormParams;
+nonterminal FormalParameter;
+nonterminal OneFormParam;
+nonterminal Statements;
+nonterminal Statement;
+nonterminal DesignatorStatement;
+nonterminal Designator;
+nonterminal DesignatorIdent;
+nonterminal Designators;
+nonterminal DesignatorPart;
+nonterminal AssignStatement;
+nonterminal FunctionCall;
+nonterminal FunctionCallParameter;
+nonterminal ActualParams;
+nonterminal IfCondition;
+nonterminal Else;
+nonterminal ForIdent;
+nonterminal ForInit;
+nonterminal ForCondition;
+nonterminal ForEnd;
+nonterminal Condition;
+nonterminal CondTerm;
+nonterminal CondFact;
+nonterminal Expr;
+nonterminal AddopExpr;
+nonterminal Term;
+nonterminal Factor;
+nonterminal ArrayInitList;
+nonterminal Dummy;
+nonterminal Addop;
+nonterminal Mulop;
+nonterminal Relop;
+
 
 precedence left ELSE;
 
@@ -50,6 +153,20 @@ VarNames ::= (MultipleVariableNames) VarNames COMMA VarIdent;
 VarIdent ::= (VariableIdent) IDENT:var
 							|
 							(ArrayVariableIdent) IDENT:var LBRACK RBRACK;
+							
+EnumDecl ::= (EnumDeclarations) ENUM EnumIdent LBRACE EnumInit RBRACE;
+
+EnumIdent ::= (EnumIdent) IDENT:e;
+
+EnumInit ::= (MultipleEnumInit) EnumInit COMMA EnumMember
+							|
+							(OneEnumInit) EnumMember;
+							
+EnumMember::=(EnumMemberWithNum) IDENT:e ASSIGN NUMBER:num
+									 |
+									 (EnumMemberWithoutNum)	IDENT:e;
+									 
+
 
 MethodDecl ::= (MethodDeclaration) ReturnType MethodIdent FromParams VarDeclList LBRACE Statements RBRACE;
 
@@ -146,7 +263,17 @@ Else ::= (Else) ELSE;
 
 ForIdent ::= (ForIdent) FOR;
 
-ForInit ::= (
+ForInit ::= (NonEmptyForInit) DesignatorStatement
+						|
+						(EmptyForInit) /* epsilon */ ;
+						
+ForCondition ::= (NonEmptyForCondition) Condition
+									 |
+									 (EmptyForCondition) /* epsilon */ ;
+
+ForEnd ::= (NonEmptyForEnd) DesignatorStatement
+						|
+						(EmptyForEnd) /* epsilon */ ;
 
 Condition ::= (MultipleCondition) Condition OR CondTerm
 							  |
