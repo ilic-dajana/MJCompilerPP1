@@ -1,0 +1,222 @@
+
+
+terminal    PROG, LBRACE, RBRACE;
+terminal String IDENT;
+
+nonterminal Program;
+nonterminal ProgIdent;
+nonterminal DeclList;
+nonterminal MethodDeclList;
+
+precedence left ELSE;
+
+Program ::= (Program) PROG ProgIdent DeclList LBRACE MethodDeclList RBRACE;
+
+ProgIdent ::= (ProgramIdent) IDENT:progname;
+
+DeclList ::= (DeclarationList) DeclList Declaration
+						  |
+						  (EmptyDeclarationList)    /* epsilon */ ;	
+						  
+Declaration ::= (ConstDeclaration) ConstDecl
+								  |
+								 (VarDeclaration) VarDecl
+								 |
+								 (EnumDeclaration) EnumDecl;
+								 
+ConstDecl ::= (ConstDecl) CONST Type ConstList SEMICOLON;
+
+Type ::= (Type) IDENT:type;
+
+ConstList ::= (MultipleConstList) ConstList COMMA Constant
+							 |
+							 ( OneConstList) Constant;
+							 
+							 
+Constant ::= (ConstNumber) IDENT:numIdent ASSIGN NUMBER:num
+							|
+							(ConstBool) IDENT:boolIdent ASSIGN BOOLCONST:val
+							|
+							(ConstChar) IDENT:charIdent ASSIGN CHARCONST:c;
+
+VarDecl ::= (VariableDeclaration) Type VarNames SEMICOLON;
+
+VarDeclList ::=  (MultipleVariableDeclarations) VarDeclList VarDecl
+								   |
+								   (EmptyVariableDeclarations)  /*epsilon*/ ;
+								   
+VarNames ::= (MultipleVariableNames) VarNames COMMA VarIdent;
+
+VarIdent ::= (VariableIdent) IDENT:var
+							|
+							(ArrayVariableIdent) IDENT:var LBRACK RBRACK;
+
+MethodDecl ::= (MethodDeclaration) ReturnType MethodIdent FromParams VarDeclList LBRACE Statements RBRACE;
+
+MethodDeclList ::= (MultipleMethodDeclarations) MethodDeclList MethodDecl
+											|
+											(EmptyMethodDeclaration) /* epsilon */;
+											
+ReturnType ::= (NonVoidType) Type
+								 |
+								(VoidType) VOID;
+								
+MethodIdent ::= (MethodIdent) IDENT:method;
+
+FormParams ::= (FormalParameters) LPAREN FormalParameter RPAREN;
+
+FormalParameter ::= (MultipleFormalParameters) FormalParameter COMMA OneFormParam
+												|
+												(OneFormalParameter) OneFormParam;
+
+OneFormParam ::= (UsualParameter) Type IDENT:param
+											|
+											(ArrayParameter) Type IDENT:param LBRACK RBRACK
+											|
+											(NumberParameter) Type IDENT:param ASSIGN NUMBER:n
+											|
+											(CharParameter)  Type IDENT:param ASSIGN CHAR:c
+											|
+											(BoolParameter) Type IDENT:param ASSIGN BOOLCONST:b;
+Statements ::= (MultipleStatements) Statements  Statement
+								  |
+								  (EmptyStatements) /* epsilon */;
+								  											
+Statement  ::=  (DesignatorStatement) DesignatorStatement SEMICOLON
+								  |
+								 (BreakStatement) BREAK SEMICOLON
+								 |
+								 (ContinueStatement) CONTINUE SEMICOLON
+								 |
+								 (ExpressionReturnStatement) RETURN Expr SEMICOLON
+								 |
+								 (EmptyReturnStatement) RETURN SEMICOLON	
+								 |
+								 (StatementBlock) LBRACE Statement RBRACE
+								 |
+								 (ReadStatement) READ LPAREN Designator RPAREN SEMICOLON
+								 |
+								 (PrintOneStatement) PRINT LPAREN Expr RPAREN SEMICOLON
+								 |
+								 (PrintMultipleStatement) PRINT LPAREN Expr COMMA NUMBER:num RPAREN SEMICOLON;
+								 |
+								 (IFStatement) IF LPAREN IfCondition RPAREN Statement
+								 |
+								 (IFELSEStatement) IF LPAREN IfCondition RPAREN Statement Else Statement
+								 |
+								 (FORStatement) ForIdent LPAREN ForInit SEMICOLON ForCondition SEMICOLON ForEnd RPAREN Statement;
+								 
+DesignatorStatement ::= (AssignDesignator) AssignStatement
+														|
+														(IncrementDesignator) Designator INC
+														|
+														(DecrementDesignator) Designator DEC
+														|
+														(FunctionCallDesignator) FunctionCall;
+
+Designator ::= (Designator) DesignatorIdent Designators;
+
+DesignatorIdent ::= (DesignatorIdent) IDENT:des;
+
+Designators ::= (MultipleDesignators) Designators DesignatorPart
+								   |
+								   (EmptyDesignator)  /* epsilon */ ;
+
+DesignatorPart ::= (DesignatorEnum) DOT IDENT:member
+										  |
+										  (DesignatorArray) LBRACK Expr RBRACK;
+								
+
+AssignStatement ::= (AssignStatement) Designator ASSIGN Expr;
+
+FunctionCall ::= (FunctionCall) Designator LPAREN FunctionCallParameters RPAREN;
+
+FunctionCallParameter ::= (ActualParameters) ActualParams
+															|
+															(EmptyParameters) /* epsilon */;
+															
+ActualParams ::=(MultipleActualParameters) ActualParams COMMA Expr
+									  |
+									  (OneActualParameter) Expr;
+															
+								
+IfCondition ::= (IFCondition) Condition;
+
+Else ::= (Else) ELSE;
+
+ForIdent ::= (ForIdent) FOR;
+
+ForInit ::= (
+
+Condition ::= (MultipleCondition) Condition OR CondTerm
+							  |
+							  (OneCondition) CondTerm;
+							  
+CondTerm ::= (MultipleConditionTerms) Cond Term AND CondFact
+							   |
+							   (OneConditionTerm) CondFact;
+
+CondFact ::= (ExpressionConditionFact) Expr
+							|
+							(RelOpConditionFact) Expr Relop Expr;
+
+Expr ::= (Expression) AddopExpr
+				  |
+				  (NegativeExpression) MINUS AddopExpr;
+
+AddopExpr ::= (AddExpression) AddopExpr Addop Term
+								 |
+								 (OneAddExpression) Term;
+								 
+Term ::= (AddTerm) Term Mulop Factor
+				   |
+				   (OneMulFactor) Factor;
+				   
+				   
+Factor ::= (DesignatorF) Designator
+					  |
+					  (NumConstF) NUMBER:num
+					  |
+					  (CharConstF) CHARCONST:c
+					  |
+					  (BoolConstF) BOOLCONST:b
+					  |
+					  (NewF) NEW Type
+					  |
+					  (NewArrayF) NEW Type LBRACK Expr RBRACK
+					  |
+					  (	NewArrayWithInitListF) NEW Type LBRACK Expr RBRACK LBRACE ArrayInitList RBRACE
+					  |
+					  (FunctionCallF) FunctionCall
+					  |
+					  (ComplexExpression) LPAREN Expr RPAREN;
+
+ArrayInitList ::= (MultipleArrayInit) ArrayInitList COMMA Dummy Expr
+									|
+									(OneArrayInit) Dummy Expr;
+					  			   
+Dummy ::= (Dummy) ;
+
+Addop ::= (Plus) PLUS
+					   |					 
+					   (Minus) MINUS;
+
+Mulop ::= (Mul) MUL
+					  |
+					  (Div) DIV
+					  |
+					  (Mod) MOD;
+					  	
+Relop ::= (RelopEQ) EQ
+					|
+					(RelopNEQ) NOTEQ
+					|
+					(RelopGRT) GRT
+					|
+					(RelopGRTEQ) GRTEQ
+					|
+					(RelopLESSEQ) LESSEQ
+					|
+					(RelopLESS) LESS;
+
+
