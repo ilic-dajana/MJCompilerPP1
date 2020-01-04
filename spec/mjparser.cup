@@ -53,7 +53,7 @@ scan with {:
 		return s;
 :}
 
-terminal    PROG, LBRACE, RBRACE, SEMICOLON, BREAK, ENUM, CONST, NEW, READ, FOR, CONTINUE;
+terminal    PROG, LBRACE, RBRACE, SEMICOLON, BREAK,  CONST, NEW, READ, FOR, CONTINUE;
 terminal    MINUS, DIV, MUL, MOD, NOTEQ, LPAREN, RPAREN, EQ. RETURN, PLUS, COMMA, PRINT, VOID;
 terminal    IF, ELSE, GRT, GRTEQ, LESS, LESSEQ, AND, OR, INC, DEC, ASSIGN, DOT, LBRACK, RBRACK; 
 terminal Integer NUMBER;
@@ -73,10 +73,6 @@ nonterminal VarDecl;
 nonterminal VarDeclList;
 nonterminal VarNames;
 nonterminal VarIdent;
-nonterminal EnumDecl;
-nonterminal EnumIdent;
-nonterminal EnumInit;
-nonterminal EnumMember;
 nonterminal MethodDecl;
 nonterminal MethodDeclList;
 nonterminal ReturnType;
@@ -127,9 +123,7 @@ DeclList ::= (DeclarationList) DeclList Declaration
 						  
 Declaration ::= (ConstDeclaration) ConstDecl
 								  |
-								 (VarDeclaration) VarDecl
-								 |
-								 (EnumDeclaration) EnumDecl;
+								 (VarDeclaration) VarDecl;
 								 
 ConstDecl ::= (ConstDecl) CONST Type ConstList SEMICOLON;
 
@@ -160,19 +154,6 @@ VarIdent ::= (VariableIdent) IDENT:var
 							|
 							(ArrayVariableIdent) IDENT:var LBRACK RBRACK;
 							
-EnumDecl ::= (EnumDeclarations) ENUM EnumIdent LBRACE EnumInit RBRACE;
-
-EnumIdent ::= (EnumIdent) IDENT:e;
-
-EnumInit ::= (MultipleEnumInit) EnumInit COMMA EnumMember
-							|
-							(OneEnumInit) EnumMember;
-							
-EnumMember::=(EnumMemberWithNum) IDENT:e ASSIGN NUMBER:num
-									 |
-									 (EnumMemberWithoutNum)	IDENT:e;
-									 
-
 
 MethodDecl ::= (MethodDeclaration) ReturnType MethodIdent FromParams VarDeclList LBRACE Statements RBRACE;
 
@@ -246,10 +227,7 @@ Designators ::= (MultipleDesignators) Designators DesignatorPart
 								   |
 								   (EmptyDesignator)  /* epsilon */ ;
 
-DesignatorPart ::= (DesignatorEnum) DOT IDENT:member
-										  |
-										  (DesignatorArray) LBRACK Expr RBRACK;
-								
+DesignatorPart ::=  (DesignatorArray) LBRACK Expr RBRACK;								
 
 AssignStatement ::= (AssignStatement) Designator ASSIGN Expr;
 
@@ -257,18 +235,18 @@ FunctionCall ::= (FunctionCall) Designator LPAREN FunctionCallParameters RPAREN;
 
 FunctionCallParameter ::= (ActualParameters) ActualParams
 															|
-															(EmptyParameters) /* epsilon */;
+															(EmptyParameters) /* epsilon */ ;
 															
 ActualParams ::=(MultipleActualParameters) ActualParams COMMA Expr
 									  |
-									  (OneActualParameter) Expr;
+									  (OneActualParameter) Expr ;
 															
 								
-IfCondition ::= (IFCondition) Condition;
+IfCondition ::= (IFCondition) Condition ;
 
-Else ::= (Else) ELSE;
+Else ::= (Else) ELSE ;
 
-ForIdent ::= (ForIdent) FOR;
+ForIdent ::= (ForIdent) FOR ;
 
 ForInit ::= (NonEmptyForInit) DesignatorStatement
 						|
@@ -296,15 +274,15 @@ CondFact ::= (ExpressionConditionFact) Expr
 
 Expr ::= (Expression) AddopExpr
 				  |
-				  (NegativeExpression) MINUS AddopExpr;
+				  (NegativeExpression) MINUS AddopExpr ;
 
 AddopExpr ::= (AddExpression) AddopExpr Addop Term
 								 |
-								 (OneAddExpression) Term;
+								 (OneAddExpression) Term ;
 								 
 Term ::= (AddTerm) Term Mulop Factor
 				   |
-				   (OneMulFactor) Factor;
+				   (OneMulFactor) Factor ;
 				   
 				   
 Factor ::= (DesignatorF) Designator
@@ -323,23 +301,23 @@ Factor ::= (DesignatorF) Designator
 					  |
 					  (FunctionCallF) FunctionCall
 					  |
-					  (ComplexExpressionF) LPAREN Expr RPAREN;
+					  (ComplexExpressionF) LPAREN Expr RPAREN ;
 
 ArrayInitList ::= (MultipleArrayInit) ArrayInitList COMMA Dummy Expr
 									|
-									(OneArrayInit) Dummy Expr;
+									(OneArrayInit) Dummy Expr ;
 					  			   
 Dummy ::= (Dummy)  ;
 
 Addop ::= (Plus) PLUS
 					   |					 
-					   (Minus) MINUS;
+					   (Minus) MINUS ;
 
 Mulop ::= (Mul) MUL
 					  |
 					  (Div) DIV
 					  |
-					  (Mod) MOD;
+					  (Mod) MOD ;
 					  	
 Relop ::= (RelopEQ) EQ
 					|
@@ -351,6 +329,6 @@ Relop ::= (RelopEQ) EQ
 					|
 					(RelopLESSEQ) LESSEQ
 					|
-					(RelopLESS) LESS;
+					(RelopLESS) LESSS ;
 
 
