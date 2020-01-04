@@ -1,0 +1,167 @@
+INFO  22:26:19,555 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  22:26:19,587 - #2 program
+INFO  22:26:19,588 - #39 MJProgram
+INFO  22:26:19,588 - #39 int
+INFO  22:26:19,588 - #39 x
+INFO  22:26:19,589 - #5 ;
+INFO  22:26:19,589 - #39 int
+INFO  22:26:19,589 - #39 y
+INFO  22:26:19,589 - #5 ;
+INFO  22:26:19,590 - #3 {
+INFO  22:26:19,590 - #39 int
+INFO  22:26:19,590 - #39 main
+INFO  22:26:19,590 - #17 (
+INFO  22:26:19,591 - #18 )
+INFO  22:26:19,591 - #3 {
+INFO  22:26:19,592 - #23 print
+INFO  22:26:19,592 - #17 (
+INFO  22:26:19,592 - #38 1
+INFO  22:26:19,592 - #18 )
+INFO  22:26:19,593 - #5 ;
+INFO  22:26:19,593 - #39 x
+INFO  22:26:19,593 - #35 =
+INFO  22:26:19,594 - #39 y
+INFO  22:26:19,594 - #21 +
+INFO  22:26:19,594 - #38 5
+INFO  22:26:19,594 - #21 +
+INFO  22:26:19,595 - #38 8
+INFO  22:26:19,595 - #5 ;
+INFO  22:26:19,595 - #23 print
+INFO  22:26:19,596 - #17 (
+INFO  22:26:19,596 - #38 2
+INFO  22:26:19,596 - #18 )
+INFO  22:26:19,596 - #5 ;
+INFO  22:26:19,596 - #4 }
+INFO  22:26:19,596 - #4 }
+INFO  22:26:19,598 - Program(
+  ProgramIdent(
+   MJProgram
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             x
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          VariableIdent(
+           y
+          ) [VariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      NonVoidType(
+        Type(
+         int
+        ) [Type]
+      ) [NonVoidType]
+      MethodIdent(
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          MultipleStatements(
+            EmptyStatements(
+            ) [EmptyStatements]
+            PrintOneStatement(
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     1
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [PrintOneStatement]
+          ) [MultipleStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   x
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  AddExpression(
+                    AddExpression(
+                      OneAddExpression(
+                        OneMulFactor(
+                          DesignatorF(
+                            Designator(
+                              DesignatorIdent(
+                               y
+                              ) [DesignatorIdent]
+                              EmptyDesignator(
+                              ) [EmptyDesignator]
+                            ) [Designator]
+                          ) [DesignatorF]
+                        ) [OneMulFactor]
+                      ) [OneAddExpression]
+                      Plus(
+                      ) [Plus]
+                      OneMulFactor(
+                        NumConstF(
+                         5
+                        ) [NumConstF]
+                      ) [OneMulFactor]
+                    ) [AddExpression]
+                    Plus(
+                    ) [Plus]
+                    OneMulFactor(
+                      NumConstF(
+                       8
+                      ) [NumConstF]
+                    ) [OneMulFactor]
+                  ) [AddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        PrintOneStatement(
+          Expression(
+            OneAddExpression(
+              OneMulFactor(
+                NumConstF(
+                 2
+                ) [NumConstF]
+              ) [OneMulFactor]
+            ) [OneAddExpression]
+          ) [Expression]
+        ) [PrintOneStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+INFO  22:26:19,598 - ===================================
+INFO  22:26:19,601 -  Print count calls = 2
+INFO  22:26:19,601 -  Deklarisanih promenljivih ima = 0

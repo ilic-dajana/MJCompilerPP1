@@ -32,12 +32,12 @@ public class MJLexerTest {
 			
 			br = new BufferedReader(new FileReader(sourceCode));
 			
-		/*	Yylex lexer = new Yylex(br);
+			Yylex lexer = new Yylex(br);
 			Symbol currToken = null;
 			while ((currToken = lexer.next_token()).sym != sym.EOF) {
 				if (currToken != null && currToken.value != null)
 					log.info(currToken.toString() + " " + currToken.value.toString());
-			}*/
+			}
 		} 
 		finally {
 			if (br != null) try { br.close(); } catch (IOException e1) { log.error(e1.getMessage(), e1); }

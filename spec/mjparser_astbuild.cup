@@ -100,7 +100,7 @@ nonterminal ForEnd ForEnd;
 nonterminal Condition Condition;
 nonterminal CondTerm CondTerm;
 nonterminal CondFact CondFact;
-nonterminal Expr Expr;
+nonterminal  rs.etf.pp1.symboltable.concepts.Struct Expr;
 nonterminal AddopExpr AddopExpr;
 nonterminal Term Term;
 nonterminal Factor Factor;
@@ -167,7 +167,9 @@ ReturnType ::= (NonVoidType) Type:T1 {: RESULT=new NonVoidType(T1); RESULT.setLi
 								
 MethodIdent ::= (MethodIdent) IDENT:method {: RESULT=new MethodIdent(method); RESULT.setLine(methodleft); :};
 
-FormParams ::= (FormalParameters) LPAREN FormalParameter:F1 RPAREN {: RESULT=new FormalParameters(F1); RESULT.setLine(F1left); :};
+FormParams ::= (FormalParameters) LPAREN FormalParameter:F1 RPAREN {: RESULT=new FormalParameters(F1); RESULT.setLine(F1left); :}
+									 |
+									 (EmptyFormalParameters) LPAREN RPAREN {: RESULT=new EmptyFormalParameters(); :};
 
 FormalParameter ::= (MultipleFormalParameters) FormalParameter:F1 COMMA OneFormParam:O2 {: RESULT=new MultipleFormalParameters(F1, O2); RESULT.setLine(F1left); :}
 												|

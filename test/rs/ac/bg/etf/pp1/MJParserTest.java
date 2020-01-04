@@ -32,7 +32,7 @@ public class MJParserTest {
 			log.info("Compiling source file: " + sourceCode.getAbsolutePath());
 			
 			br = new BufferedReader(new FileReader(sourceCode));
-		/*	Yylex lexer = new Yylex(br);
+			Yylex lexer = new Yylex(br);
 			
 			MJParser p = new MJParser(lexer);
 	        Symbol s = p.parse();  //pocetak parsiranja
@@ -48,7 +48,7 @@ public class MJParserTest {
 	      
 			log.info(" Print count calls = " + v.printCallCount);
 
-			log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);*/
+			log.info(" Deklarisanih promenljivih ima = " + v.varDeclCount);
 			
 		} 
 		finally {

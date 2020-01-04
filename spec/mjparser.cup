@@ -100,7 +100,7 @@ nonterminal ForEnd;
 nonterminal Condition;
 nonterminal CondTerm;
 nonterminal CondFact;
-nonterminal Expr;
+nonterminal  rs.etf.pp1.symboltable.concepts.Struct Expr;
 nonterminal AddopExpr;
 nonterminal Term;
 nonterminal Factor;
@@ -167,7 +167,9 @@ ReturnType ::= (NonVoidType) Type
 								
 MethodIdent ::= (MethodIdent) IDENT:method;
 
-FormParams ::= (FormalParameters) LPAREN FormalParameter RPAREN;
+FormParams ::= (FormalParameters) LPAREN FormalParameter RPAREN
+									 |
+									 (EmptyFormalParameters) LPAREN RPAREN;
 
 FormalParameter ::= (MultipleFormalParameters) FormalParameter COMMA OneFormParam
 												|
