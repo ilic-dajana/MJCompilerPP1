@@ -54,8 +54,8 @@ scan with {:
 :}
 
 terminal    PROG, LBRACE, RBRACE, SEMICOLON, BREAK,  CONST, NEW, READ, FOR, CONTINUE;
-terminal    MINUS, DIV, MUL, MOD, NOTEQ, LPAREN, RPAREN, EQ. RETURN, PLUS, COMMA, PRINT, VOID;
-terminal    IF, ELSE, GRT, GRTEQ, LESS, LESSEQ, AND, OR, INC, DEC, ASSIGN, DOT, LBRACK, RBRACK; 
+terminal    MINUS, DIV, MUL, MOD, NOTEQ, LPAREN, RPAREN, EQ, RETURN, PLUS, COMMA, PRINT, VOID;
+terminal    IF, ELSE, GRT, GRTEQ, LESS, LESSEQ, AND, OR, INC, DEC, ASSIGN,  LBRACK, RBRACK; 
 terminal Integer NUMBER;
 terminal String IDENT;
 terminal Character CHARCONST;
@@ -119,7 +119,7 @@ ProgIdent ::= (ProgramIdent) IDENT:progname;
 
 DeclList ::= (DeclarationList) DeclList Declaration
 						  |
-						  (EmptyDeclarationList)    /*   epsilon    */  ;	
+						  (EmptyDeclarationList)    /*   epsilon    */;	
 						  
 Declaration ::= (ConstDeclaration) ConstDecl
 								  |
@@ -131,20 +131,20 @@ Type ::= (Type) IDENT:type;
 
 ConstList ::= (MultipleConstList) ConstList COMMA Constant
 							 |
-							 ( OneConstList) Constant ;
+							 ( OneConstList) Constant;
 							 
 							 
 Constant ::= (ConstNumber) IDENT:numIdent ASSIGN NUMBER:num
 							|
 							(ConstBool) IDENT:boolIdent ASSIGN BOOLCONST:val
 							|
-							(ConstChar) IDENT:charIdent ASSIGN CHARCONST:c ;
+							(ConstChar) IDENT:charIdent ASSIGN CHARCONST:c;
 
 VarDecl ::= (VariableDeclaration) Type VarNames SEMICOLON;
 
 VarDeclList ::=  (MultipleVariableDeclarations) VarDeclList VarDecl
 								   |
-								   (EmptyVariableDeclarations)  /*  epsilon  */ ;
+								   (EmptyVariableDeclarations)  /*  epsilon  */;
 								   
 VarNames ::= (MultipleVariableNames) VarNames COMMA VarIdent
 							    |
@@ -155,11 +155,11 @@ VarIdent ::= (VariableIdent) IDENT:var
 							(ArrayVariableIdent) IDENT:var LBRACK RBRACK;
 							
 
-MethodDecl ::= (MethodDeclaration) ReturnType MethodIdent FromParams VarDeclList LBRACE Statements RBRACE;
+MethodDecl ::= (MethodDeclaration) ReturnType MethodIdent FormParams VarDeclList LBRACE Statements RBRACE;
 
 MethodDeclList ::= (MultipleMethodDeclarations) MethodDeclList MethodDecl
 											|
-											(EmptyMethodDeclaration) /* epsilon */ ;
+											(EmptyMethodDeclaration) /* epsilon */;
 											
 ReturnType ::= (NonVoidType) Type
 								 |
@@ -185,9 +185,9 @@ OneFormParam ::= (UsualParameter) Type IDENT:param
 											
 Statements ::= (MultipleStatements) Statements  Statement
 								  |
-								  (EmptyStatements) /* epsilon */ ;
+								  (EmptyStatements) /* epsilon */;
 								  											
-Statement  ::=  (DesignatorStatement) DesignatorStatement SEMICOLON
+Statement  ::=  (DesignatorStatements) DesignatorStatement SEMICOLON
 								  |
 								 (BreakStatement) BREAK SEMICOLON
 								 |
@@ -203,7 +203,7 @@ Statement  ::=  (DesignatorStatement) DesignatorStatement SEMICOLON
 								 |
 								 (PrintOneStatement) PRINT LPAREN Expr RPAREN SEMICOLON
 								 |
-								 (PrintMultipleStatement) PRINT LPAREN Expr COMMA NUMBER:num RPAREN SEMICOLON;
+								 (PrintMultipleStatement) PRINT LPAREN Expr COMMA NUMBER:num RPAREN SEMICOLON
 								 |
 								 (IFStatement) IF LPAREN IfCondition RPAREN Statement
 								 |
@@ -225,24 +225,24 @@ DesignatorIdent ::= (DesignatorIdent) IDENT:des;
 
 Designators ::= (MultipleDesignators) Designators DesignatorPart
 								   |
-								   (EmptyDesignator)  /* epsilon */ ;
+								   (EmptyDesignator)  /* epsilon */;
 
 DesignatorPart ::=  (DesignatorArray) LBRACK Expr RBRACK;								
 
 AssignStatement ::= (AssignStatement) Designator ASSIGN Expr;
 
-FunctionCall ::= (FunctionCall) Designator LPAREN FunctionCallParameters RPAREN;
+FunctionCall ::= (FunctionCall) Designator LPAREN FunctionCallParameter RPAREN;
 
 FunctionCallParameter ::= (ActualParameters) ActualParams
 															|
-															(EmptyParameters) /* epsilon */ ;
+															(EmptyParameters) /* epsilon */;
 															
 ActualParams ::=(MultipleActualParameters) ActualParams COMMA Expr
 									  |
-									  (OneActualParameter) Expr ;
+									  (OneActualParameter) Expr;
 															
 								
-IfCondition ::= (IFCondition) Condition ;
+IfCondition ::= (IFCondition) Condition;
 
 Else ::= (Else) ELSE ;
 
@@ -250,15 +250,15 @@ ForIdent ::= (ForIdent) FOR ;
 
 ForInit ::= (NonEmptyForInit) DesignatorStatement
 						|
-					   (EmptyForInit) /* epsilon */ ;
+					   (EmptyForInit) /* epsilon */;
 						
 ForCondition ::= (NonEmptyForCondition) Condition
 									 |
-									 (EmptyForCondition) /* epsilon */ ;
+									 (EmptyForCondition) /* epsilon */;
 
 ForEnd ::= (NonEmptyForEnd) DesignatorStatement
 						|
-						(EmptyForEnd) /* epsilon */ ;
+						(EmptyForEnd) /* epsilon */;
 
 Condition ::= (MultipleCondition) Condition OR CondTerm
 							  |
@@ -278,11 +278,11 @@ Expr ::= (Expression) AddopExpr
 
 AddopExpr ::= (AddExpression) AddopExpr Addop Term
 								 |
-								 (OneAddExpression) Term ;
+								 (OneAddExpression) Term;
 								 
 Term ::= (AddTerm) Term Mulop Factor
 				   |
-				   (OneMulFactor) Factor ;
+				   (OneMulFactor) Factor;
 				   
 				   
 Factor ::= (DesignatorF) Designator
@@ -301,23 +301,23 @@ Factor ::= (DesignatorF) Designator
 					  |
 					  (FunctionCallF) FunctionCall
 					  |
-					  (ComplexExpressionF) LPAREN Expr RPAREN ;
+					  (ComplexExpressionF) LPAREN Expr RPAREN;
 
 ArrayInitList ::= (MultipleArrayInit) ArrayInitList COMMA Dummy Expr
 									|
-									(OneArrayInit) Dummy Expr ;
+									(OneArrayInit) Dummy Expr;
 					  			   
-Dummy ::= (Dummy)  ;
+Dummy ::= (Dummy);
 
 Addop ::= (Plus) PLUS
 					   |					 
-					   (Minus) MINUS ;
+					   (Minus) MINUS;
 
 Mulop ::= (Mul) MUL
 					  |
 					  (Div) DIV
 					  |
-					  (Mod) MOD ;
+					  (Mod) MOD;
 					  	
 Relop ::= (RelopEQ) EQ
 					|
@@ -329,6 +329,6 @@ Relop ::= (RelopEQ) EQ
 					|
 					(RelopLESSEQ) LESSEQ
 					|
-					(RelopLESS) LESSS ;
+					(RelopLESS) LESS;
 
 

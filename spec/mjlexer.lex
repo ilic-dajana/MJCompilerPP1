@@ -37,6 +37,7 @@ import java_cup.runtime.Symbol;
 "\f" 	{ }
 "\r" {}
 
+<YYINITIAL>{
 "program" 		  	{ return new_symbol(sym.PROG, yytext()); }
 "print" 					{ return new_symbol(sym.PRINT, yytext()); }
 "return" 					{ return new_symbol(sym.RETURN, yytext()); }
@@ -68,7 +69,6 @@ import java_cup.runtime.Symbol;
 "=" 								{ return new_symbol(sym.ASSIGN, yytext()); }
 ";" 								{ return new_symbol(sym.SEMICOLON, yytext()); }
 "," 								{ return new_symbol(sym.COMMA, yytext()); }
-"."								{ return new_symbol(sym.DOT, yytext()); }
 "(" 								{ return new_symbol(sym.LPAREN, yytext()); }
 ")" 								{ return new_symbol(sym.RPAREN, yytext()); }
 "{" 								{ return new_symbol(sym.LBRACE, yytext()); }
@@ -81,14 +81,12 @@ import java_cup.runtime.Symbol;
 "'"[\040-\176]"'" { return new_symbol(sym.CHARCONST, new Character(yytext().charAt(1)));    }
 
  	[^] 							{ System.err.println("Leksicka greska ("+yytext()+") u liniji "+(yyline+1)); }
+}
 
-<COMMENT> . {yybegin(COMMENT);}
-<COMMENT> "\r\n" { yybegin(YYINITIAL); }
-
-[0-9]+  { return new_symbol(sym.NUMBER, new Integer (yytext())); }
-([a-z]|[A-Z])[a-z|A-Z|0-9|_]* 	{return new_symbol (sym.IDENT, yytext()); }
-
-. { System.err.println("Leksicka greska ("+yytext()+") u liniji "+(yyline+1)); }
+<COMMENT>{
+	" \r"|"\n"|"\r\n " { yybegin(YYINITIAL);}
+	    	. {yybegin(COMMENT);}
+}
 
 
 
