@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 4/0/2020 23:16:49
+// 5/0/2020 23:28:52
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -9,10 +9,23 @@ public class MethodIdent implements SyntaxNode {
 
     private SyntaxNode parent;
     private int line;
+    public rs.etf.pp1.symboltable.concepts.Obj obj = null;
+
+    private ReturnType ReturnType;
     private String method;
 
-    public MethodIdent (String method) {
+    public MethodIdent (ReturnType ReturnType, String method) {
+        this.ReturnType=ReturnType;
+        if(ReturnType!=null) ReturnType.setParent(this);
         this.method=method;
+    }
+
+    public ReturnType getReturnType() {
+        return ReturnType;
+    }
+
+    public void setReturnType(ReturnType ReturnType) {
+        this.ReturnType=ReturnType;
     }
 
     public String getMethod() {
@@ -44,13 +57,16 @@ public class MethodIdent implements SyntaxNode {
     }
 
     public void childrenAccept(Visitor visitor) {
+        if(ReturnType!=null) ReturnType.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
+        if(ReturnType!=null) ReturnType.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
+        if(ReturnType!=null) ReturnType.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -58,6 +74,12 @@ public class MethodIdent implements SyntaxNode {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("MethodIdent(\n");
+
+        if(ReturnType!=null)
+            buffer.append(ReturnType.toString("  "+tab));
+        else
+            buffer.append(tab+"  null");
+        buffer.append("\n");
 
         buffer.append(" "+tab+method);
         buffer.append("\n");
