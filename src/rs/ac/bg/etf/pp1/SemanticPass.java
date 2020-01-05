@@ -19,6 +19,8 @@ public class SemanticPass extends VisitorAdaptor {
 	Type declaredType;
 	Obj  currentMethod = null;
 	private boolean returnFound;
+	int formalParamCnt = 0;
+	private boolean justInitied;
 	
 	
 	public void report_error(String message, SyntaxNode info) {
@@ -116,6 +118,8 @@ public class SemanticPass extends VisitorAdaptor {
 	    	
 	    	returnFound = false;
 	    	currentMethod = null;
+	    	formalParamCnt = 0;
+	    	justInitied = false;
 	    }
 	 
 	 public void visit(ConstNumber n) {
@@ -172,6 +176,84 @@ public class SemanticPass extends VisitorAdaptor {
 		 if(currentMethod.getType() != Tab.noType) {
 			 report_error("Return type doesn't match", r);
 		 }				
+	 }
+	 
+	 public void visit(UsualParameter p) {
+		 if(declaredType.struct == Tab.noType)
+			 return;
+		 if(justInitied) {
+			 report_error("Non initied formal param ", p);
+			 return;
+		 }
+		 formalParamCnt++;
+		 String name  = p.getParam();
+		 Type type = p.getType();
+		 
+		 if(Tab.currentScope().findSymbol(name)!= null) {
+			 report_error("Symbol is already used in this function! ", p);
+		 }else{
+			 Obj o = Tab.insert(Obj.Var, name, declaredType.struct);
+			 o.setFpPos(formalParamCnt);
+			 report_info("Formal parameter found " + name, p);
+		 }
+	 }
+	 
+	 public void visit(ArrayParameter p) {
+		 if(declaredType.struct == Tab.noType)
+			 return;
+		 if(justInitied) {
+			 report_error("Non initied formal param ", p);
+			 return;
+		 }
+		 formalParamCnt++;
+		 String name  = p.getParam();
+		 Type type = p.getType();
+		 
+		 if(Tab.currentScope().findSymbol(name)!= null) {
+			 report_error("Symbol is already used in this function! ", p);
+		 }else{
+			 Obj o = Tab.insert(Obj.Var, name, declaredType.struct);
+			 o.setFpPos(formalParamCnt);
+			 report_info("Formal parameter found " + name, p);
+		 }		 
+	 }
+	 
+	 public void visit(NumberParameter p) {
+		 if(p.getType().struct != Tab.intType)
+			 report_error("Cant assign different types!", p);		 
+		 if(!justInitied)
+			 justInitied = true;
+		 formalParamCnt++;
+		 
+		 Obj ob =Tab.find(p.getType().getType());
+		 Obj o = Tab.insert(Obj.Var, p.getParam(), declaredType.struct);
+		 o.setFpPos(formalParamCnt);
+	 }
+	 
+	 public void visit(CharParameter p) {
+		 if(p.getType().struct != Tab.charType)
+			 report_error("Cant assign different types!", p);		 
+		 if(!justInitied)
+			 justInitied = true;
+		 formalParamCnt++;
+		 
+		 Obj ob =Tab.find(p.getType().getType());
+		 Obj o = Tab.insert(Obj.Var, p.getParam(), declaredType.struct);
+		 o.setFpPos(formalParamCnt);
+		 
+	 }
+ 
+	 public void visit(BoolParameter p) {
+		 if(p.getType().struct != boolType)
+			 report_error("Cant assign different types!", p);		 
+		 if(!justInitied)
+			 justInitied = true;
+		 formalParamCnt++;
+		 
+		 Obj ob =Tab.find(p.getType().getType());
+		 Obj o = Tab.insert(Obj.Var, p.getParam(), declaredType.struct);
+		 o.setFpPos(formalParamCnt);
+		 
 	 }
 	 
 	public void visit(VariableDeclaration v) {
