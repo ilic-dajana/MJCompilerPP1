@@ -1,5 +1,8 @@
 package rs.ac.bg.etf.pp1;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 import rs.ac.bg.etf.pp1.ast.*;
 import rs.etf.pp1.mj.runtime.Code;
 import rs.etf.pp1.symboltable.Tab;
@@ -9,6 +12,12 @@ import rs.etf.pp1.symboltable.concepts.Struct;
 public class CodeGenerator extends VisitorAdaptor {
 	
 	private int mainPc;
+	Deque<Integer> condJmp = new ArrayDeque<>(); 
+	Deque<Integer> loopEnd = new ArrayDeque<>(); 
+	Deque<Integer> loopCntEnd = new ArrayDeque<>(); 
+	Deque<Integer> forCond = new ArrayDeque<>(); 
+	Deque<Integer> forEnd = new ArrayDeque<>(); 
+	Integer beginIndex = 0;
 	
 	int getMainPc() {
 		return mainPc;
@@ -212,6 +221,85 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.put(Code.mul);
 	}
 	
+	//IF ELSE END	
+	public void visit(IFCondition c) {
+		Code.loadConst(1);
+		condJmp.addFirst(Code.pc + 1);
+		Code.putFalseJump(Code.eq, 0);
+	}
+	
+	public void visit(IFStatement c) {
+		Code.fixup(condJmp.removeFirst());		
+	}
+	
+	public void visit(IFELSEStatement e) {
+		Code.fixup(condJmp.removeFirst());
+	}
+	
+	public void visit(Else e) {
+		int off = condJmp.removeFirst();
+		condJmp.addFirst(Code.pc + 1);
+		Code.putJump(0);
+		Code.fixup(off);
+	}
+	
+	//FOR LOOP  ForIdent LPAREN ForInit SEMICOLON ForCondition SEMICOLON ForEnd RPAREN Statement;
+	
+	public void visit(FORStatement f) {
+		Code.putJump(forEnd.peekFirst());
+		if(f.getForCondition() instanceof NonEmptyForCondition) {
+			Code.fixup(condJmp.removeFirst());
+		}
+		forCond.removeFirst();
+		forEnd.removeFirst();
+		int b = loopEnd.removeFirst();
+		while( b > 0)
+			Code.fixup(loopEnd.removeFirst());
+		b--;
+	}
+	
+	public void visit(NonEmptyForInit i) {
+		forCond.addFirst(Code.pc);
+		loopEnd.addFirst(0);
+	}
+	
+	public void visit(EmptyForInit i) {
+		forCond.addFirst(Code.pc);
+		loopEnd.addFirst(0);
+	}
+	
+	public void visit(NonEmptyForCondition c) {
+		Code.loadConst(1);
+		condJmp.addFirst(Code.pc + 1);
+		Code.putFalseJump(Code.eq, 0);
+		condJmp.addFirst(Code.pc + 1);
+		Code.putJump(0);
+		forEnd.addFirst(Code.pc);
+	}
+	
+	public void visit(EmptyForCondition c) {
+		condJmp.addFirst(Code.pc + 1);
+		Code.putJump(0);
+		forEnd.addFirst(Code.pc);		
+	}
+	
+	public void visit(NonEmptyForEnd e) {
+		Code.putJump(forEnd.peekFirst());
+		Code.fixup(condJmp.removeFirst());
+	}
+	
+	public void visit(EmptyForEnd e) {
+		Code.putJump(forEnd.peekFirst());
+		Code.fixup(condJmp.removeFirst());
+	}
+	
+	public void visit(BreakStatement e) {
+		
+	}
+	
+	public void visit(ContinueStatement e) {
+	
+	}
 	
 	
 }
