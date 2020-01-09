@@ -13,7 +13,7 @@ public class SemanticPass extends VisitorAdaptor {
 	
 	Logger log = Logger.getLogger(getClass());
 	boolean errorDetected = false;
-	public Struct boolType = new Struct(Struct.Bool);
+	public static Struct boolType = new Struct(Struct.Bool);
 	
 	int printCallCount = 0;
 	int varDeclCount = 0;
@@ -595,6 +595,11 @@ public class SemanticPass extends VisitorAdaptor {
 
 	public boolean passed() {
 		return !errorDetected;
+	}
+
+	public int getVarDeclCount() {
+		// TODO Auto-generated method stub
+		return varDeclCount;
 	}
 	
 }
