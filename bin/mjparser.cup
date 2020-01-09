@@ -155,7 +155,7 @@ VarIdent ::= (VariableIdent) IDENT:var
 							(ArrayVariableIdent) IDENT:var LBRACK RBRACK;
 							
 
-MethodDecl ::= (MethodDeclaration) ReturnType MethodIdent FormParams VarDeclList LBRACE Statements RBRACE;
+MethodDecl ::= (MethodDeclaration) MethodIdent FormParams VarDeclList LBRACE Statements RBRACE;
 
 MethodDeclList ::= (MultipleMethodDeclarations) MethodDeclList MethodDecl
 											|

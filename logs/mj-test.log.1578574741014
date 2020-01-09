@@ -1,0 +1,125 @@
+INFO  16:50:55,864 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  16:50:55,890 - #2 program
+INFO  16:50:55,890 - #39 MJProgram
+INFO  16:50:55,890 - #39 int
+INFO  16:50:55,891 - #39 x
+INFO  16:50:55,891 - #5 ;
+INFO  16:50:55,891 - #39 int
+INFO  16:50:55,892 - #39 y
+INFO  16:50:55,892 - #5 ;
+INFO  16:50:55,892 - #3 {
+INFO  16:50:55,892 - #39 int
+INFO  16:50:55,893 - #39 main
+INFO  16:50:55,893 - #17 (
+INFO  16:50:55,893 - #18 )
+INFO  16:50:55,893 - #3 {
+INFO  16:50:55,894 - #23 print
+INFO  16:50:55,894 - #17 (
+INFO  16:50:55,895 - #38 1
+INFO  16:50:55,895 - #18 )
+INFO  16:50:55,895 - #5 ;
+INFO  16:50:55,895 - #23 print
+INFO  16:50:55,895 - #17 (
+INFO  16:50:55,895 - #38 2
+INFO  16:50:55,895 - #18 )
+INFO  16:50:55,895 - #5 ;
+INFO  16:50:55,895 - #4 }
+INFO  16:50:55,895 - #4 }
+INFO  16:50:55,900 - Program(
+  ProgramIdent(
+   MJProgram
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             x
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          VariableIdent(
+           y
+          ) [VariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      NonVoidType(
+        Type(
+         int
+        ) [Type]
+      ) [NonVoidType]
+      MethodIdent(
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          PrintOneStatement(
+            Expression(
+              OneAddExpression(
+                OneMulFactor(
+                  NumConstF(
+                   1
+                  ) [NumConstF]
+                ) [OneMulFactor]
+              ) [OneAddExpression]
+            ) [Expression]
+          ) [PrintOneStatement]
+        ) [MultipleStatements]
+        PrintOneStatement(
+          Expression(
+            OneAddExpression(
+              OneMulFactor(
+                NumConstF(
+                 2
+                ) [NumConstF]
+              ) [OneMulFactor]
+            ) [OneAddExpression]
+          ) [Expression]
+        ) [PrintOneStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+INFO  16:50:55,900 - ===================================
+ERROR 16:50:55,903 - deklarisana je promenljiva: OneVariableName(
+  VariableIdent(
+   x
+  ) [VariableIdent]
+) [OneVariableName] na liniji 2
+ERROR 16:50:55,903 - deklarisana je promenljiva: OneVariableName(
+  VariableIdent(
+   y
+  ) [VariableIdent]
+) [OneVariableName] na liniji 2
+ERROR 16:50:55,903 - print na liniji 6
+ERROR 16:50:55,903 - print na liniji 9
+INFO  16:50:55,903 -  Print count calls = 2
+INFO  16:50:55,903 -  Deklarisanih promenljivih ima = 2
+INFO  16:50:55,903 - ===================================
+INFO  16:50:55,905 - Parsiranje uspesno zavrseno!

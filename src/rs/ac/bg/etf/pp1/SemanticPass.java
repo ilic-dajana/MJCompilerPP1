@@ -110,6 +110,7 @@ public class SemanticPass extends VisitorAdaptor {
 	  }
 	
 	 public void visit(MethodIdent methodIdent){
+		 
 		 	ReturnType rt = methodIdent.getReturnType();
 		 	if(rt instanceof VoidType)
 		 		rt.struct = Tab.noType;

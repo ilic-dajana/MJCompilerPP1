@@ -155,7 +155,7 @@ VarIdent ::= (VariableIdent) IDENT:var {: RESULT=new VariableIdent(var); RESULT.
 							(ArrayVariableIdent) IDENT:var LBRACK RBRACK {: RESULT=new ArrayVariableIdent(var); RESULT.setLine(varleft); :};
 							
 
-MethodDecl ::= (MethodDeclaration) ReturnType:R1 MethodIdent:M2 FormParams:F3 VarDeclList:V4 LBRACE Statements:S5 RBRACE {: RESULT=new MethodDeclaration(R1, M2, F3, V4, S5); RESULT.setLine(R1left); :};
+MethodDecl ::= (MethodDeclaration) MethodIdent:M1 FormParams:F2 VarDeclList:V3 LBRACE Statements:S4 RBRACE {: RESULT=new MethodDeclaration(M1, F2, V3, S4); RESULT.setLine(M1left); :};
 
 MethodDeclList ::= (MultipleMethodDeclarations) MethodDeclList:M1 MethodDecl:M2 {: RESULT=new MultipleMethodDeclarations(M1, M2); RESULT.setLine(M1left); :}
 											|

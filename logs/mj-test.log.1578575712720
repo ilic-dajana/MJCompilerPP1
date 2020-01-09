@@ -1,0 +1,111 @@
+INFO  14:15:08,311 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:15:08,344 - #2 program
+INFO  14:15:08,344 - #39 MJProgram
+INFO  14:15:08,344 - #39 int
+INFO  14:15:08,344 - #39 x
+INFO  14:15:08,345 - #5 ;
+INFO  14:15:08,345 - #39 int
+INFO  14:15:08,345 - #39 y
+INFO  14:15:08,345 - #5 ;
+INFO  14:15:08,346 - #3 {
+INFO  14:15:08,346 - #39 int
+INFO  14:15:08,346 - #39 main
+INFO  14:15:08,346 - #17 (
+INFO  14:15:08,347 - #18 )
+INFO  14:15:08,347 - #3 {
+INFO  14:15:08,348 - #23 print
+INFO  14:15:08,348 - #17 (
+INFO  14:15:08,348 - #38 1
+INFO  14:15:08,348 - #18 )
+INFO  14:15:08,348 - #5 ;
+INFO  14:15:08,349 - #23 print
+INFO  14:15:08,349 - #17 (
+INFO  14:15:08,349 - #38 2
+INFO  14:15:08,349 - #18 )
+INFO  14:15:08,349 - #5 ;
+INFO  14:15:08,349 - #4 }
+INFO  14:15:08,349 - #4 }
+INFO  14:15:08,350 - Program(
+  ProgramIdent(
+   MJProgram
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             x
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          VariableIdent(
+           y
+          ) [VariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        NonVoidType(
+          Type(
+           int
+          ) [Type]
+        ) [NonVoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          PrintOneStatement(
+            Expression(
+              OneAddExpression(
+                OneMulFactor(
+                  NumConstF(
+                   1
+                  ) [NumConstF]
+                ) [OneMulFactor]
+              ) [OneAddExpression]
+            ) [Expression]
+          ) [PrintOneStatement]
+        ) [MultipleStatements]
+        PrintOneStatement(
+          Expression(
+            OneAddExpression(
+              OneMulFactor(
+                NumConstF(
+                 2
+                ) [NumConstF]
+              ) [OneMulFactor]
+            ) [OneAddExpression]
+          ) [Expression]
+        ) [PrintOneStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+INFO  14:15:08,350 - ===================================
+INFO  14:15:08,352 -  Print count calls = 2
+INFO  14:15:08,352 -  Deklarisanih promenljivih ima = 0

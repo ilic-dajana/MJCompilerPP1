@@ -1,21 +1,18 @@
 // generated with ast extension for cup
 // version 0.8
-// 6/0/2020 18:42:36
+// 9/0/2020 14:14:54
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class MethodDeclaration extends MethodDecl {
 
-    private ReturnType ReturnType;
     private MethodIdent MethodIdent;
     private FormParams FormParams;
     private VarDeclList VarDeclList;
     private Statements Statements;
 
-    public MethodDeclaration (ReturnType ReturnType, MethodIdent MethodIdent, FormParams FormParams, VarDeclList VarDeclList, Statements Statements) {
-        this.ReturnType=ReturnType;
-        if(ReturnType!=null) ReturnType.setParent(this);
+    public MethodDeclaration (MethodIdent MethodIdent, FormParams FormParams, VarDeclList VarDeclList, Statements Statements) {
         this.MethodIdent=MethodIdent;
         if(MethodIdent!=null) MethodIdent.setParent(this);
         this.FormParams=FormParams;
@@ -24,14 +21,6 @@ public class MethodDeclaration extends MethodDecl {
         if(VarDeclList!=null) VarDeclList.setParent(this);
         this.Statements=Statements;
         if(Statements!=null) Statements.setParent(this);
-    }
-
-    public ReturnType getReturnType() {
-        return ReturnType;
-    }
-
-    public void setReturnType(ReturnType ReturnType) {
-        this.ReturnType=ReturnType;
     }
 
     public MethodIdent getMethodIdent() {
@@ -71,7 +60,6 @@ public class MethodDeclaration extends MethodDecl {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(ReturnType!=null) ReturnType.accept(visitor);
         if(MethodIdent!=null) MethodIdent.accept(visitor);
         if(FormParams!=null) FormParams.accept(visitor);
         if(VarDeclList!=null) VarDeclList.accept(visitor);
@@ -80,7 +68,6 @@ public class MethodDeclaration extends MethodDecl {
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(ReturnType!=null) ReturnType.traverseTopDown(visitor);
         if(MethodIdent!=null) MethodIdent.traverseTopDown(visitor);
         if(FormParams!=null) FormParams.traverseTopDown(visitor);
         if(VarDeclList!=null) VarDeclList.traverseTopDown(visitor);
@@ -88,7 +75,6 @@ public class MethodDeclaration extends MethodDecl {
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(ReturnType!=null) ReturnType.traverseBottomUp(visitor);
         if(MethodIdent!=null) MethodIdent.traverseBottomUp(visitor);
         if(FormParams!=null) FormParams.traverseBottomUp(visitor);
         if(VarDeclList!=null) VarDeclList.traverseBottomUp(visitor);
@@ -100,12 +86,6 @@ public class MethodDeclaration extends MethodDecl {
         StringBuffer buffer=new StringBuffer();
         buffer.append(tab);
         buffer.append("MethodDeclaration(\n");
-
-        if(ReturnType!=null)
-            buffer.append(ReturnType.toString("  "+tab));
-        else
-            buffer.append(tab+"  null");
-        buffer.append("\n");
 
         if(MethodIdent!=null)
             buffer.append(MethodIdent.toString("  "+tab));

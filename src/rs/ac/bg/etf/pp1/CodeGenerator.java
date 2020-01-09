@@ -217,8 +217,60 @@ public class CodeGenerator extends VisitorAdaptor {
 		
 	}
 	
-	public void visit(MultipleCondition c) {
+	public void visit(MultipleConditionTerms c) {
 		Code.put(Code.mul);
+	}
+	
+	public void visit(MultipleCondition c) {
+		Code.put(Code.add);
+		Code.loadConst(0);
+		condJmp.addFirst(Code.pc + 1);
+		Code.putFalseJump(Code.eq, 0);
+		Code.loadConst(0);
+		int off = condJmp.removeFirst();
+		condJmp.addFirst(Code.pc + 1);
+		Code.putJump(0);
+		Code.fixup(off);
+		Code.loadConst(1);
+		Code.fixup(condJmp.removeFirst());
+	}
+	
+	public void visit(RelOpConditionFact e) {
+		condJmp.addFirst(Code.pc + 1);
+		
+		if(e.getRelop().getClass() == RelopEQ.class)
+			Code.putFalseJump(Code.eq, 0);
+		
+		if(e.getRelop().getClass() == RelopNEQ.class)
+			Code.putFalseJump(Code.ne, 0);
+		
+		if(e.getRelop().getClass() == RelopGRT.class)
+			Code.putFalseJump(Code.gt, 0);
+		
+		if(e.getRelop().getClass() == RelopGRTEQ.class)
+			Code.putFalseJump(Code.ge, 0);
+		
+		if(e.getRelop().getClass() == RelopLESS.class)
+			Code.putFalseJump(Code.lt, 0);
+		
+		if(e.getRelop().getClass() == RelopLESSEQ.class)
+			Code.putFalseJump(Code.le, 0);
+		
+		Code.loadConst(1);
+		int off = condJmp.removeFirst();
+		condJmp.addFirst(Code.pc + 1);
+		Code.putJump(0);
+		Code.fixup(off);
+		Code.loadConst(0);
+		Code.fixup(condJmp.removeFirst());
+	}
+	
+	public void visit(NewArrayF a) {
+		Code.put(Code.newarray);
+		if(a.struct.getKind() == Struct.Char)
+			Code.put(0);
+		else
+			Code.put(1);
 	}
 	
 	//IF ELSE END	
@@ -294,12 +346,15 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(BreakStatement e) {
-		
+		loopCntEnd.addFirst(loopEnd.removeFirst());
+		loopEnd.addFirst(Code.pc + 1);
+		Code.putJump(0);
 	}
 	
 	public void visit(ContinueStatement e) {
-	
+		Code.putJump(forEnd.peekFirst());
 	}
+	
 	
 	
 }
