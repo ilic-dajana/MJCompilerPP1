@@ -1,0 +1,151 @@
+INFO  15:00:04,011 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  15:00:04,038 - #2 program
+INFO  15:00:04,038 - #39 test301
+INFO  15:00:04,038 - #39 int
+INFO  15:00:04,039 - #39 niz
+INFO  15:00:04,039 - #36 [
+INFO  15:00:04,040 - #37 ]
+INFO  15:00:04,040 - #5 ;
+INFO  15:00:04,040 - #3 {
+INFO  15:00:04,040 - #24 void
+INFO  15:00:04,041 - #39 main
+INFO  15:00:04,041 - #17 (
+INFO  15:00:04,041 - #18 )
+INFO  15:00:04,041 - #3 {
+INFO  15:00:04,042 - #39 niz
+INFO  15:00:04,042 - #35 =
+INFO  15:00:04,043 - #8 new
+INFO  15:00:04,043 - #39 int
+INFO  15:00:04,043 - #36 [
+INFO  15:00:04,043 - #38 3
+INFO  15:00:04,043 - #37 ]
+INFO  15:00:04,044 - #5 ;
+INFO  15:00:04,044 - #39 niz
+INFO  15:00:04,044 - #36 [
+INFO  15:00:04,044 - #39 osam
+INFO  15:00:04,044 - #37 ]
+INFO  15:00:04,045 - #35 =
+INFO  15:00:04,045 - #38 2
+INFO  15:00:04,045 - #5 ;
+INFO  15:00:04,045 - #4 }
+INFO  15:00:04,045 - #4 }
+INFO  15:00:04,046 - Syntax analysis finished
+INFO  15:00:04,047 - Program(
+  ProgramIdent(
+   test301
+  ) [ProgramIdent]
+  DeclarationList(
+    EmptyDeclarationList(
+    ) [EmptyDeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           niz
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   niz
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NewArrayF(
+                        Type(
+                         int
+                        ) [Type]
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NumConstF(
+                               3
+                              ) [NumConstF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [NewArrayF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            AssignStatement(
+              Designator(
+                DesignatorIdent(
+                 niz
+                ) [DesignatorIdent]
+                MultipleDesignators(
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                  DesignatorArray(
+                    Expression(
+                      OneAddExpression(
+                        OneMulFactor(
+                          DesignatorF(
+                            Designator(
+                              DesignatorIdent(
+                               osam
+                              ) [DesignatorIdent]
+                              EmptyDesignator(
+                              ) [EmptyDesignator]
+                            ) [Designator]
+                          ) [DesignatorF]
+                        ) [OneMulFactor]
+                      ) [OneAddExpression]
+                    ) [Expression]
+                  ) [DesignatorArray]
+                ) [MultipleDesignators]
+              ) [Designator]
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     2
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [AssignStatement]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 15:00:04,055 - In function  main na liniji 7
+ERROR 15:00:04,056 - Missing declaration  na liniji 11
+ERROR 15:00:04,056 - Invalid expression in array expr  na liniji 11

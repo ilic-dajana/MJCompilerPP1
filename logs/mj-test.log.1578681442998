@@ -1,0 +1,193 @@
+INFO  19:34:58,776 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  19:34:58,812 - #2 program
+INFO  19:34:58,812 - #39 test302
+INFO  19:34:58,812 - #39 int
+INFO  19:34:58,813 - #39 i
+INFO  19:34:58,814 - #5 ;
+INFO  19:34:58,814 - #39 int
+INFO  19:34:58,814 - #39 niz
+INFO  19:34:58,814 - #36 [
+INFO  19:34:58,815 - #37 ]
+INFO  19:34:58,815 - #5 ;
+INFO  19:34:58,815 - #3 {
+INFO  19:34:58,815 - #24 void
+INFO  19:34:58,815 - #39 main
+INFO  19:34:58,816 - #17 (
+INFO  19:34:58,816 - #18 )
+INFO  19:34:58,816 - #3 {
+INFO  19:34:58,817 - #39 i
+INFO  19:34:58,817 - #35 =
+INFO  19:34:58,819 - #38 0
+INFO  19:34:58,819 - #5 ;
+INFO  19:34:58,820 - #39 niz
+INFO  19:34:58,821 - #35 =
+INFO  19:34:58,821 - #8 new
+INFO  19:34:58,821 - #39 int
+INFO  19:34:58,821 - #36 [
+INFO  19:34:58,821 - #38 3
+INFO  19:34:58,821 - #37 ]
+INFO  19:34:58,822 - #5 ;
+INFO  19:34:58,822 - #39 niz
+INFO  19:34:58,822 - #36 [
+INFO  19:34:58,822 - #39 i
+INFO  19:34:58,822 - #33 ++
+INFO  19:34:58,822 - #37 ]
+INFO  19:34:58,823 - #35 =
+INFO  19:34:58,823 - #38 1
+INFO  19:34:58,823 - #5 ;
+INFO  19:34:58,823 - #4 }
+INFO  19:34:58,823 - #4 }
+INFO  19:34:58,825 - Syntax analysis finished
+INFO  19:34:58,826 - Program(
+  ProgramIdent(
+   test302
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             i
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           niz
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          MultipleStatements(
+            EmptyStatements(
+            ) [EmptyStatements]
+            DesignatorStatements(
+              AssignDesignator(
+                AssignStatement(
+                  Designator(
+                    DesignatorIdent(
+                     i
+                    ) [DesignatorIdent]
+                    EmptyDesignator(
+                    ) [EmptyDesignator]
+                  ) [Designator]
+                  Expression(
+                    OneAddExpression(
+                      OneMulFactor(
+                        NumConstF(
+                         0
+                        ) [NumConstF]
+                      ) [OneMulFactor]
+                    ) [OneAddExpression]
+                  ) [Expression]
+                ) [AssignStatement]
+              ) [AssignDesignator]
+            ) [DesignatorStatements]
+          ) [MultipleStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   niz
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NewArrayF(
+                        Type(
+                         int
+                        ) [Type]
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NumConstF(
+                               3
+                              ) [NumConstF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [NewArrayF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            AssignStatement(
+              Designator(
+                DesignatorIdent(
+                 niz
+                ) [DesignatorIdent]
+                MultipleDesignators(
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                  DesignatorArray(
+                    ArrayINC(
+                      Designator(
+                        DesignatorIdent(
+                         i
+                        ) [DesignatorIdent]
+                        EmptyDesignator(
+                        ) [EmptyDesignator]
+                      ) [Designator]
+                    ) [ArrayINC]
+                  ) [DesignatorArray]
+                ) [MultipleDesignators]
+              ) [Designator]
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     1
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [AssignStatement]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 19:34:58,835 - In function  main na liniji 8
+ERROR 19:34:58,836 - Invalid expression in array expr  na liniji 12
+ERROR 19:34:58,836 - Invalid types assigned na liniji 12
+INFO  19:34:58,836 - Semantic analysis finished
+ERROR 19:34:58,836 - Parsiranje nije uspesno zavrseno!

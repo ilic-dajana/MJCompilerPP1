@@ -11,6 +11,7 @@
 				<exclude name="RuleVisitor.java"/>
 				<exclude name = "CodeGenerator.java"/>
 				<exclude name = "CallFunctionStack.java"/>
+				<exclude name = "Compiler.java"/>
 			</fileset>
 		</delete>
 		<delete>

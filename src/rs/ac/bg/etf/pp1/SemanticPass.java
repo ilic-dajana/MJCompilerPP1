@@ -99,8 +99,7 @@ public class SemanticPass extends VisitorAdaptor {
 	    	}else{
 	    		if(Obj.Type == typeNode.getKind()){
 	    			type.struct = typeNode.getType();
-	    			if(type.getParent() instanceof ArrayInitList)
-	    				arrayType = type;
+	    			
 	    		}else{
 	    			report_error("Greska: Ime " + type.getType() + " ne predstavlja tip!", type);
 	    			type.struct = Tab.noType;
@@ -118,9 +117,9 @@ public class SemanticPass extends VisitorAdaptor {
 		 			rt.struct = ((NonVoidType) rt).getType().struct;
 		 	
 		 	currentMethod = Tab.insert(Obj.Meth,  methodIdent.getMethod() , rt.struct);
-		 	
+		 	Tab.openScope();
 	    	methodIdent.obj = currentMethod;
-	    	Tab.openScope();
+	    	
 			report_info("In function  " + methodIdent.getMethod(), methodIdent);
 	    }
 	 
@@ -294,7 +293,7 @@ public class SemanticPass extends VisitorAdaptor {
 		 Struct s1 = e.getTerm().struct;
 		 Struct s2 = e.getAddopExpr().struct;
 		 
-		 if(s1.equals(s2) && s1 == Tab.intType) {
+		 if(s2.equals(s1) && s2 == Tab.intType) {
 			 e.struct = Tab.intType;
 		 }else {
 			 e.struct = Tab.noType;
@@ -352,19 +351,20 @@ public class SemanticPass extends VisitorAdaptor {
 	 }
 	 
 	 public void visit(NewArrayWithInitListF f) {
-		 if(f.getExpr().struct != Tab.intType) {
+	/*	 if(f.getExpr().struct != Tab.intType) {
 			 report_error("Invalid array size type ", f);
 			 return;
-		 }
+		 }*/
 	 }
 	 
 	 public void visit(FunctionCallF f) {
 		 DesignatorIdent ident = f.getFunctionCall().getDesignator().getDesignatorIdent();
 		 if(ident.obj.getKind() != Obj.Meth) {
 			 report_error("Function call invalid ", f);
-		 }else {
-			 f.struct = f.getFunctionCall().getDesignator().obj.getType();
+		 }else if (f.getFunctionCall().getDesignator().obj.getType() == Tab.noType) {
+			report_error("Function call void", f);
 		 }
+		 f.struct = f.getFunctionCall().getDesignator().obj.getType();
 	 }
 	 
 	 public void visit(ComplexExpressionF f) {
@@ -403,7 +403,7 @@ public class SemanticPass extends VisitorAdaptor {
 			 return;
 		 }
 		 if(!d.getExpr().struct.assignableTo(d.getDesignator().obj.getType())) {
-			 report_error("Invalid types ", d);
+			 report_error("Invalid types assigned", d);
 		 }
 	 }
 	 
@@ -432,9 +432,9 @@ public class SemanticPass extends VisitorAdaptor {
 	 }
 	 
 	 public void visit(NonEmptyForCondition f) {
-		 if(f.getCondition().struct != boolType) {
+		/* if(f.getCondition().struct != boolType) {
 			 report_error("Not a bool Type condition! ", f);
-		 }
+		 }*/
 	 }
 	 
 	 public void visit(EmptyForCondition f) {
@@ -468,9 +468,12 @@ public class SemanticPass extends VisitorAdaptor {
 		 m.struct = c1;
 	 }
 	 
-	 public void visit(ExpressionConditionFact e) {
+	 public void visit(ExpressionConditionFact e) {		
 		 if(e.getExpr().struct != boolType) {
 			 report_error("Must be boolType ", e);
+			 e.struct = Tab.noType;
+		 }else {
+			 e.struct = e.getExpr().struct;
 		 }
 	 }
 	 
@@ -496,18 +499,18 @@ public class SemanticPass extends VisitorAdaptor {
 		 String ime = d.getDes();
 		 Obj objD = Tab.find(ime);
 		 currentDesignators.addFirst(objD);
+		 designatorIdents.addFirst(new StringBuilder(ime));
 		 d.obj = objD;
 		 if(objD == Tab.noObj) {
 			 report_error("Missing declaration ", d);
 			 currentDesignators.removeFirst();
 			 currentDesignators.addFirst(Tab.noObj);
-		 }else {
-			 designatorIdents.addFirst(new StringBuilder(ime));
 		 }
 	 }
 	 
 	 public void visit(Designator d) {
-		 String ime = designatorIdents.peekFirst().toString();
+		 
+	// report_info("found designator " + ime, null);
 		 d.obj = currentDesignators.removeFirst();
 		 designatorIdents.removeFirst();
 		 
@@ -527,15 +530,35 @@ public class SemanticPass extends VisitorAdaptor {
 		 
 		 int desKind = currentDesignators.peekFirst().getType().getKind();
 		 
-		 if(desKind != Struct.Array || d.getExpr().struct != Tab.intType) {
+		 if(desKind != Struct.Array) {
 			 currentDesignators.removeFirst();
 			 currentDesignators.addFirst(Tab.noObj);
-			 report_error("Invalid expression ", d);
+			 report_error("Invalid expression in array ", d);
 			 return;
 		 }
+
+		if(d.getArrayIndex().struct != Tab.intType){
+			 currentDesignators.removeFirst();
+			 currentDesignators.addFirst(Tab.noObj);
+			 report_error("Invalid expression in array expr ", d);
+			 return;
+		}
+
 		 Obj objDes = currentDesignators.removeFirst();
 		 currentDesignators.addFirst(new Obj(Obj.Elem, designatorIdents.peekFirst().toString(), objDes.getType().getElemType()));
 		 designatorIdents.peekFirst().append("[]");
+	 }
+	 
+	 public void visit(ArrayExpr e) {
+		 e.struct = e.getExpr().struct;
+	 }
+	 
+	 public void visit(ArrayINC e) {
+		 e.struct = Tab.intType;
+	 }
+	 
+	 public void visit(ArrayDEC e) {
+		 e.struct = Tab.intType;
 	 }
 	 
 	 public void visit(FunctionCall f) {
@@ -543,7 +566,7 @@ public class SemanticPass extends VisitorAdaptor {
 	 }
 	 
 	 public void visit(ActualParameters p) {
-		 if(!(callFuncStack.peekFirst().getnParam() > callFuncStack.peekFirst().getnParamObradjeno())) {
+		 if(!(callFuncStack.peekFirst().getnParam() == callFuncStack.peekFirst().getnParamObradjeno())) {
 			 report_error("Function requires " + callFuncStack.peekFirst().getnParam() + " parameters ", p);
 		 }
 	 }
@@ -564,7 +587,7 @@ public class SemanticPass extends VisitorAdaptor {
 		 for(Obj o:callFuncStack.peekFirst().getLocalParam()) {
 			 if(o.getFpPos() == nParam) {
 				if(!p.getExpr().struct.assignableTo(o.getType())) {
-					report_error("Invalid types ", p);
+					report_error("Invalid types in actual param", p);
 				}
 			 }
 		 }
@@ -582,7 +605,7 @@ public class SemanticPass extends VisitorAdaptor {
 		 for(Obj o:callFuncStack.peekFirst().getLocalParam()) {
 			 if(o.getFpPos() == nParam) {
 				if(!p.getExpr().struct.assignableTo(o.getType())) {
-					report_error("Invalid types ", p);
+					report_error("Invalid types on param", p);
 				}
 			 }
 		 }
@@ -590,7 +613,6 @@ public class SemanticPass extends VisitorAdaptor {
 	 
 	public void visit(VariableDeclaration v) {
 		varDeclCount++;
-		report_info("deklarisana je promenljiva: " + v.getVarNames(), v  );
 	}
 
 	public boolean passed() {

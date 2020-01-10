@@ -1,0 +1,189 @@
+INFO  19:37:23,001 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  19:37:23,114 - #2 program
+INFO  19:37:23,114 - #39 test302
+INFO  19:37:23,114 - #39 int
+INFO  19:37:23,116 - #39 i
+INFO  19:37:23,117 - #5 ;
+INFO  19:37:23,117 - #39 int
+INFO  19:37:23,118 - #39 niz
+INFO  19:37:23,118 - #36 [
+INFO  19:37:23,118 - #37 ]
+INFO  19:37:23,118 - #5 ;
+INFO  19:37:23,118 - #3 {
+INFO  19:37:23,119 - #24 void
+INFO  19:37:23,119 - #39 main
+INFO  19:37:23,121 - #17 (
+INFO  19:37:23,122 - #18 )
+INFO  19:37:23,122 - #3 {
+INFO  19:37:23,124 - #39 i
+INFO  19:37:23,125 - #35 =
+INFO  19:37:23,127 - #38 0
+INFO  19:37:23,128 - #5 ;
+INFO  19:37:23,129 - #39 niz
+INFO  19:37:23,130 - #35 =
+INFO  19:37:23,130 - #8 new
+INFO  19:37:23,130 - #39 int
+INFO  19:37:23,130 - #36 [
+INFO  19:37:23,130 - #38 3
+INFO  19:37:23,130 - #37 ]
+INFO  19:37:23,130 - #5 ;
+INFO  19:37:23,130 - #39 niz
+INFO  19:37:23,131 - #36 [
+INFO  19:37:23,131 - #39 i
+INFO  19:37:23,131 - #33 ++
+INFO  19:37:23,131 - #37 ]
+INFO  19:37:23,131 - #35 =
+INFO  19:37:23,132 - #38 1
+INFO  19:37:23,132 - #5 ;
+INFO  19:37:23,132 - #4 }
+INFO  19:37:23,132 - #4 }
+INFO  19:37:23,134 - Syntax analysis finished
+INFO  19:37:23,135 - Program(
+  ProgramIdent(
+   test302
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             i
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           niz
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          MultipleStatements(
+            EmptyStatements(
+            ) [EmptyStatements]
+            DesignatorStatements(
+              AssignDesignator(
+                AssignStatement(
+                  Designator(
+                    DesignatorIdent(
+                     i
+                    ) [DesignatorIdent]
+                    EmptyDesignator(
+                    ) [EmptyDesignator]
+                  ) [Designator]
+                  Expression(
+                    OneAddExpression(
+                      OneMulFactor(
+                        NumConstF(
+                         0
+                        ) [NumConstF]
+                      ) [OneMulFactor]
+                    ) [OneAddExpression]
+                  ) [Expression]
+                ) [AssignStatement]
+              ) [AssignDesignator]
+            ) [DesignatorStatements]
+          ) [MultipleStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   niz
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NewArrayF(
+                        Type(
+                         int
+                        ) [Type]
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NumConstF(
+                               3
+                              ) [NumConstF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [NewArrayF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            AssignStatement(
+              Designator(
+                DesignatorIdent(
+                 niz
+                ) [DesignatorIdent]
+                MultipleDesignators(
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                  DesignatorArray(
+                    ArrayINC(
+                      Designator(
+                        DesignatorIdent(
+                         i
+                        ) [DesignatorIdent]
+                        EmptyDesignator(
+                        ) [EmptyDesignator]
+                      ) [Designator]
+                    ) [ArrayINC]
+                  ) [DesignatorArray]
+                ) [MultipleDesignators]
+              ) [Designator]
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     1
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [AssignStatement]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 19:37:23,170 - In function  main na liniji 8

@@ -63,6 +63,7 @@ terminal Boolean BOOLCONST;
 
 nonterminal rs.etf.pp1.symboltable.concepts.Obj Program;
 nonterminal rs.etf.pp1.symboltable.concepts.Obj ProgIdent;
+nonterminal rs.etf.pp1.symboltable.concepts.Struct ArrayIndex;
 nonterminal DeclList DeclList;
 nonterminal Declaration Declaration;
 nonterminal ConstDecl ConstDecl;
@@ -199,7 +200,7 @@ Statement  ::=  (DesignatorStatements) DesignatorStatement:D1 SEMICOLON {: RESUL
 								 |
 								 (EmptyReturnStatement) RETURN SEMICOLON {: RESULT=new EmptyReturnStatement(); :}	
 								 |
-								 (StatementBlock) LBRACE Statement:S1 RBRACE {: RESULT=new StatementBlock(S1); RESULT.setLine(S1left); :}
+								 (StatementBlock) LBRACE Statements:S1 RBRACE {: RESULT=new StatementBlock(S1); RESULT.setLine(S1left); :}
 								 |
 								 (ReadStatement) READ LPAREN Designator:D1 RPAREN SEMICOLON {: RESULT=new ReadStatement(D1); RESULT.setLine(D1left); :}
 								 |
@@ -229,7 +230,13 @@ Designators ::= (MultipleDesignators) Designators:D1 DesignatorPart:D2 {: RESULT
 								   |
 								   (EmptyDesignator) {: RESULT=new EmptyDesignator(); :}  /* epsilon */;
 
-DesignatorPart ::=  (DesignatorArray) LBRACK Expr:E1 RBRACK {: RESULT=new DesignatorArray(E1); RESULT.setLine(E1left); :};								
+DesignatorPart ::=  (DesignatorArray) LBRACK ArrayIndex:A1 RBRACK {: RESULT=new DesignatorArray(A1); RESULT.setLine(A1left); :};								
+
+ArrayIndex ::= (ArrayExpr) Expr:E1 {: RESULT=new ArrayExpr(E1); RESULT.setLine(E1left); :}
+								|
+								(ArrayINC) Designator:D1 INC {: RESULT=new ArrayINC(D1); RESULT.setLine(D1left); :}
+								|
+								(ArrayDEC) Designator:D1 DEC {: RESULT=new ArrayDEC(D1); RESULT.setLine(D1left); :};
 
 AssignStatement ::= (AssignStatement) Designator:D1 ASSIGN Expr:E2 {: RESULT=new AssignStatement(D1, E2); RESULT.setLine(D1left); :};
 

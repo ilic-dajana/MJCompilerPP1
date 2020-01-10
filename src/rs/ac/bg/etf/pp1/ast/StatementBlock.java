@@ -1,25 +1,25 @@
 // generated with ast extension for cup
 // version 0.8
-// 9/0/2020 14:14:54
+// 10/0/2020 19:34:32
 
 
 package rs.ac.bg.etf.pp1.ast;
 
 public class StatementBlock extends Statement {
 
-    private Statement Statement;
+    private Statements Statements;
 
-    public StatementBlock (Statement Statement) {
-        this.Statement=Statement;
-        if(Statement!=null) Statement.setParent(this);
+    public StatementBlock (Statements Statements) {
+        this.Statements=Statements;
+        if(Statements!=null) Statements.setParent(this);
     }
 
-    public Statement getStatement() {
-        return Statement;
+    public Statements getStatements() {
+        return Statements;
     }
 
-    public void setStatement(Statement Statement) {
-        this.Statement=Statement;
+    public void setStatements(Statements Statements) {
+        this.Statements=Statements;
     }
 
     public void accept(Visitor visitor) {
@@ -27,16 +27,16 @@ public class StatementBlock extends Statement {
     }
 
     public void childrenAccept(Visitor visitor) {
-        if(Statement!=null) Statement.accept(visitor);
+        if(Statements!=null) Statements.accept(visitor);
     }
 
     public void traverseTopDown(Visitor visitor) {
         accept(visitor);
-        if(Statement!=null) Statement.traverseTopDown(visitor);
+        if(Statements!=null) Statements.traverseTopDown(visitor);
     }
 
     public void traverseBottomUp(Visitor visitor) {
-        if(Statement!=null) Statement.traverseBottomUp(visitor);
+        if(Statements!=null) Statements.traverseBottomUp(visitor);
         accept(visitor);
     }
 
@@ -45,8 +45,8 @@ public class StatementBlock extends Statement {
         buffer.append(tab);
         buffer.append("StatementBlock(\n");
 
-        if(Statement!=null)
-            buffer.append(Statement.toString("  "+tab));
+        if(Statements!=null)
+            buffer.append(Statements.toString("  "+tab));
         else
             buffer.append(tab+"  null");
         buffer.append("\n");

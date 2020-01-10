@@ -1,12 +1,15 @@
-program MJProgram
-	int x; int y;
+//Test 302
+
+program test302
+int i;
+
+int niz[];
 {
-	int main() {
-		
-		print(1);
-		
-		
-		print(2);
-		return 1;
+	void main()
+	{
+		i = 0;
+		niz = new int[3];
+		niz[i++] = 1;
 	}
 }
+

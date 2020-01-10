@@ -304,20 +304,21 @@ public class CodeGenerator extends VisitorAdaptor {
 		}
 		forCond.removeFirst();
 		forEnd.removeFirst();
-		int b = loopEnd.removeFirst();
-		while( b > 0)
+		int b = loopCntEnd.removeFirst();
+		while( b > 0) {
 			Code.fixup(loopEnd.removeFirst());
-		b--;
+			b--;
+		}
 	}
 	
 	public void visit(NonEmptyForInit i) {
 		forCond.addFirst(Code.pc);
-		loopEnd.addFirst(0);
+		loopCntEnd.addFirst(0);
 	}
 	
 	public void visit(EmptyForInit i) {
 		forCond.addFirst(Code.pc);
-		loopEnd.addFirst(0);
+		loopCntEnd.addFirst(0);
 	}
 	
 	public void visit(NonEmptyForCondition c) {
@@ -346,7 +347,8 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(BreakStatement e) {
-		loopCntEnd.addFirst(loopEnd.removeFirst());
+		int newCnt = loopCntEnd.removeFirst()+1;
+		loopCntEnd.addFirst(newCnt);
 		loopEnd.addFirst(Code.pc + 1);
 		Code.putJump(0);
 	}

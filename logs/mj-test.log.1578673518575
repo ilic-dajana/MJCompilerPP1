@@ -1,0 +1,252 @@
+INFO  17:25:11,750 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  17:25:11,782 - #2 program
+INFO  17:25:11,782 - #39 test302
+INFO  17:25:11,783 - #7 const
+INFO  17:25:11,783 - #39 int
+INFO  17:25:11,783 - #39 jedan
+INFO  17:25:11,783 - #35 =
+INFO  17:25:11,784 - #38 1
+INFO  17:25:11,784 - #5 ;
+INFO  17:25:11,784 - #39 int
+INFO  17:25:11,785 - #39 i
+INFO  17:25:11,785 - #5 ;
+INFO  17:25:11,785 - #39 bool
+INFO  17:25:11,785 - #39 ibool
+INFO  17:25:11,785 - #5 ;
+INFO  17:25:11,785 - #39 int
+INFO  17:25:11,785 - #39 niz
+INFO  17:25:11,786 - #36 [
+INFO  17:25:11,786 - #37 ]
+INFO  17:25:11,786 - #5 ;
+INFO  17:25:11,786 - #3 {
+INFO  17:25:11,786 - #24 void
+INFO  17:25:11,786 - #39 main
+INFO  17:25:11,787 - #17 (
+INFO  17:25:11,787 - #18 )
+INFO  17:25:11,787 - #3 {
+INFO  17:25:11,787 - #39 ibool
+INFO  17:25:11,788 - #35 =
+INFO  17:25:11,789 - #41 false
+INFO  17:25:11,789 - #5 ;
+INFO  17:25:11,790 - #25 if
+INFO  17:25:11,790 - #17 (
+INFO  17:25:11,790 - #39 ibool
+INFO  17:25:11,790 - #18 )
+INFO  17:25:11,791 - #25 if
+INFO  17:25:11,791 - #17 (
+INFO  17:25:11,791 - #39 i
+INFO  17:25:11,791 - #19 ==
+INFO  17:25:11,792 - #38 5
+INFO  17:25:11,793 - #18 )
+INFO  17:25:11,793 - #23 print
+INFO  17:25:11,793 - #17 (
+INFO  17:25:11,794 - #38 1
+INFO  17:25:11,794 - #18 )
+INFO  17:25:11,794 - #5 ;
+INFO  17:25:11,794 - #26 else
+INFO  17:25:11,794 - #23 print
+INFO  17:25:11,795 - #17 (
+INFO  17:25:11,795 - #12 -
+INFO  17:25:11,795 - #38 1
+INFO  17:25:11,795 - #18 )
+INFO  17:25:11,795 - #5 ;
+INFO  17:25:11,795 - #4 }
+INFO  17:25:11,796 - #4 }
+INFO  17:25:11,796 - Syntax analysis finished
+INFO  17:25:11,797 - Program(
+  ProgramIdent(
+   test302
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      DeclarationList(
+        DeclarationList(
+          EmptyDeclarationList(
+          ) [EmptyDeclarationList]
+          ConstDeclaration(
+            ConstDecl(
+              Type(
+               int
+              ) [Type]
+              OneConstList(
+                ConstNumber(
+                 jedan
+                 1
+                ) [ConstNumber]
+              ) [OneConstList]
+            ) [ConstDecl]
+          ) [ConstDeclaration]
+        ) [DeclarationList]
+        VarDeclaration(
+          VariableDeclaration(
+            Type(
+             int
+            ) [Type]
+            OneVariableName(
+              VariableIdent(
+               i
+              ) [VariableIdent]
+            ) [OneVariableName]
+          ) [VariableDeclaration]
+        ) [VarDeclaration]
+      ) [DeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           bool
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             ibool
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           niz
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   ibool
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      BoolConstF(
+                       false
+                      ) [BoolConstF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        IFStatement(
+          IFCondition(
+            OneCondition(
+              OneConditionTerm(
+                ExpressionConditionFact(
+                  Expression(
+                    OneAddExpression(
+                      OneMulFactor(
+                        DesignatorF(
+                          Designator(
+                            DesignatorIdent(
+                             ibool
+                            ) [DesignatorIdent]
+                            EmptyDesignator(
+                            ) [EmptyDesignator]
+                          ) [Designator]
+                        ) [DesignatorF]
+                      ) [OneMulFactor]
+                    ) [OneAddExpression]
+                  ) [Expression]
+                ) [ExpressionConditionFact]
+              ) [OneConditionTerm]
+            ) [OneCondition]
+          ) [IFCondition]
+          IFELSEStatement(
+            IFCondition(
+              OneCondition(
+                OneConditionTerm(
+                  RelOpConditionFact(
+                    Expression(
+                      OneAddExpression(
+                        OneMulFactor(
+                          DesignatorF(
+                            Designator(
+                              DesignatorIdent(
+                               i
+                              ) [DesignatorIdent]
+                              EmptyDesignator(
+                              ) [EmptyDesignator]
+                            ) [Designator]
+                          ) [DesignatorF]
+                        ) [OneMulFactor]
+                      ) [OneAddExpression]
+                    ) [Expression]
+                    RelopEQ(
+                    ) [RelopEQ]
+                    Expression(
+                      OneAddExpression(
+                        OneMulFactor(
+                          NumConstF(
+                           5
+                          ) [NumConstF]
+                        ) [OneMulFactor]
+                      ) [OneAddExpression]
+                    ) [Expression]
+                  ) [RelOpConditionFact]
+                ) [OneConditionTerm]
+              ) [OneCondition]
+            ) [IFCondition]
+            PrintOneStatement(
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     1
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [PrintOneStatement]
+            Else(
+            ) [Else]
+            PrintOneStatement(
+              NegativeExpression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     1
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [NegativeExpression]
+            ) [PrintOneStatement]
+          ) [IFELSEStatement]
+        ) [IFStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 17:25:11,804 - In function  main na liniji 14
+INFO  17:25:11,805 - Semantic analysis finished
+INFO  17:25:11,806 - Writing bytecode
+INFO  17:25:11,807 - Overwriting byte file
+INFO  17:25:11,809 - Parsiranje  uspesno zavrseno!

@@ -1,0 +1,193 @@
+INFO  19:45:28,294 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  19:45:28,327 - #2 program
+INFO  19:45:28,327 - #39 test302
+INFO  19:45:28,327 - #39 int
+INFO  19:45:28,328 - #39 i
+INFO  19:45:28,328 - #5 ;
+INFO  19:45:28,328 - #39 int
+INFO  19:45:28,329 - #39 niz
+INFO  19:45:28,329 - #36 [
+INFO  19:45:28,329 - #37 ]
+INFO  19:45:28,329 - #5 ;
+INFO  19:45:28,329 - #3 {
+INFO  19:45:28,329 - #24 void
+INFO  19:45:28,330 - #39 main
+INFO  19:45:28,330 - #17 (
+INFO  19:45:28,330 - #18 )
+INFO  19:45:28,330 - #3 {
+INFO  19:45:28,331 - #39 i
+INFO  19:45:28,331 - #35 =
+INFO  19:45:28,333 - #38 0
+INFO  19:45:28,333 - #5 ;
+INFO  19:45:28,334 - #39 niz
+INFO  19:45:28,335 - #35 =
+INFO  19:45:28,335 - #8 new
+INFO  19:45:28,335 - #39 int
+INFO  19:45:28,335 - #36 [
+INFO  19:45:28,335 - #38 3
+INFO  19:45:28,335 - #37 ]
+INFO  19:45:28,335 - #5 ;
+INFO  19:45:28,335 - #39 niz
+INFO  19:45:28,336 - #36 [
+INFO  19:45:28,336 - #39 i
+INFO  19:45:28,336 - #33 ++
+INFO  19:45:28,336 - #37 ]
+INFO  19:45:28,336 - #35 =
+INFO  19:45:28,336 - #38 1
+INFO  19:45:28,336 - #5 ;
+INFO  19:45:28,336 - #4 }
+INFO  19:45:28,336 - #4 }
+INFO  19:45:28,337 - Syntax analysis finished
+INFO  19:45:28,339 - Program(
+  ProgramIdent(
+   test302
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             i
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           niz
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          MultipleStatements(
+            EmptyStatements(
+            ) [EmptyStatements]
+            DesignatorStatements(
+              AssignDesignator(
+                AssignStatement(
+                  Designator(
+                    DesignatorIdent(
+                     i
+                    ) [DesignatorIdent]
+                    EmptyDesignator(
+                    ) [EmptyDesignator]
+                  ) [Designator]
+                  Expression(
+                    OneAddExpression(
+                      OneMulFactor(
+                        NumConstF(
+                         0
+                        ) [NumConstF]
+                      ) [OneMulFactor]
+                    ) [OneAddExpression]
+                  ) [Expression]
+                ) [AssignStatement]
+              ) [AssignDesignator]
+            ) [DesignatorStatements]
+          ) [MultipleStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   niz
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NewArrayF(
+                        Type(
+                         int
+                        ) [Type]
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NumConstF(
+                               3
+                              ) [NumConstF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [NewArrayF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            AssignStatement(
+              Designator(
+                DesignatorIdent(
+                 niz
+                ) [DesignatorIdent]
+                MultipleDesignators(
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                  DesignatorArray(
+                    ArrayINC(
+                      Designator(
+                        DesignatorIdent(
+                         i
+                        ) [DesignatorIdent]
+                        EmptyDesignator(
+                        ) [EmptyDesignator]
+                      ) [Designator]
+                    ) [ArrayINC]
+                  ) [DesignatorArray]
+                ) [MultipleDesignators]
+              ) [Designator]
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     1
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [AssignStatement]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 19:45:28,348 - In function  main na liniji 8
+INFO  19:45:28,348 - Semantic analysis finished
+INFO  19:45:28,350 - Writing bytecode
+INFO  19:45:28,350 - Overwriting byte file
+INFO  19:45:28,352 - Parsiranje  uspesno zavrseno!

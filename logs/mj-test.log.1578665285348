@@ -1,0 +1,174 @@
+INFO  15:05:01,497 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  15:05:01,578 - #2 program
+INFO  15:05:01,578 - #39 test301
+INFO  15:05:01,578 - #7 const
+INFO  15:05:01,579 - #39 int
+INFO  15:05:01,579 - #39 nula
+INFO  15:05:01,580 - #35 =
+INFO  15:05:01,580 - #38 1
+INFO  15:05:01,580 - #5 ;
+INFO  15:05:01,581 - #39 int
+INFO  15:05:01,582 - #39 niz
+INFO  15:05:01,582 - #36 [
+INFO  15:05:01,582 - #37 ]
+INFO  15:05:01,582 - #5 ;
+INFO  15:05:01,583 - #3 {
+INFO  15:05:01,583 - #24 void
+INFO  15:05:01,584 - #39 main
+INFO  15:05:01,585 - #17 (
+INFO  15:05:01,586 - #18 )
+INFO  15:05:01,586 - #3 {
+INFO  15:05:01,587 - #39 niz
+INFO  15:05:01,588 - #35 =
+INFO  15:05:01,591 - #8 new
+INFO  15:05:01,591 - #39 int
+INFO  15:05:01,591 - #36 [
+INFO  15:05:01,591 - #38 3
+INFO  15:05:01,591 - #37 ]
+INFO  15:05:01,592 - #5 ;
+INFO  15:05:01,593 - #39 niz
+INFO  15:05:01,594 - #36 [
+INFO  15:05:01,594 - #39 nula
+INFO  15:05:01,594 - #37 ]
+INFO  15:05:01,594 - #35 =
+INFO  15:05:01,594 - #38 2
+INFO  15:05:01,594 - #5 ;
+INFO  15:05:01,595 - #4 }
+INFO  15:05:01,595 - #4 }
+INFO  15:05:01,596 - Syntax analysis finished
+INFO  15:05:01,602 - Program(
+  ProgramIdent(
+   test301
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      ConstDeclaration(
+        ConstDecl(
+          Type(
+           int
+          ) [Type]
+          OneConstList(
+            ConstNumber(
+             nula
+             1
+            ) [ConstNumber]
+          ) [OneConstList]
+        ) [ConstDecl]
+      ) [ConstDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           niz
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   niz
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NewArrayF(
+                        Type(
+                         int
+                        ) [Type]
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NumConstF(
+                               3
+                              ) [NumConstF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [NewArrayF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            AssignStatement(
+              Designator(
+                DesignatorIdent(
+                 niz
+                ) [DesignatorIdent]
+                MultipleDesignators(
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                  DesignatorArray(
+                    Expression(
+                      OneAddExpression(
+                        OneMulFactor(
+                          DesignatorF(
+                            Designator(
+                              DesignatorIdent(
+                               nula
+                              ) [DesignatorIdent]
+                              EmptyDesignator(
+                              ) [EmptyDesignator]
+                            ) [Designator]
+                          ) [DesignatorF]
+                        ) [OneMulFactor]
+                      ) [OneAddExpression]
+                    ) [Expression]
+                  ) [DesignatorArray]
+                ) [MultipleDesignators]
+              ) [Designator]
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     2
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [AssignStatement]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 15:05:01,627 - In function  main na liniji 8
+INFO  15:05:01,629 - Semantic analysis finished
+INFO  15:05:01,630 - Writing bytecode
+INFO  15:05:05,133 - Overwriting byte file
+INFO  15:07:42,957 - Parsiranje  uspesno zavrseno!

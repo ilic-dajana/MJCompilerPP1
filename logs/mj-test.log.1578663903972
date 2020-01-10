@@ -1,0 +1,147 @@
+INFO  14:44:01,635 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:44:01,661 - #2 program
+INFO  14:44:01,661 - #39 test301
+INFO  14:44:01,661 - #39 int
+INFO  14:44:01,662 - #39 niz
+INFO  14:44:01,662 - #36 [
+INFO  14:44:01,662 - #37 ]
+INFO  14:44:01,662 - #5 ;
+INFO  14:44:01,662 - #3 {
+INFO  14:44:01,663 - #24 void
+INFO  14:44:01,663 - #39 main
+INFO  14:44:01,663 - #17 (
+INFO  14:44:01,664 - #18 )
+INFO  14:44:01,664 - #3 {
+INFO  14:44:01,665 - #39 niz
+INFO  14:44:01,665 - #35 =
+INFO  14:44:01,666 - #8 new
+INFO  14:44:01,666 - #39 int
+INFO  14:44:01,666 - #36 [
+INFO  14:44:01,666 - #38 3
+INFO  14:44:01,667 - #37 ]
+INFO  14:44:01,667 - #5 ;
+INFO  14:44:01,668 - #39 niz
+INFO  14:44:01,668 - #36 [
+INFO  14:44:01,668 - #38 2
+INFO  14:44:01,669 - #37 ]
+INFO  14:44:01,669 - #35 =
+INFO  14:44:01,669 - #38 2
+INFO  14:44:01,669 - #5 ;
+INFO  14:44:01,669 - #4 }
+INFO  14:44:01,669 - #4 }
+INFO  14:44:01,670 - Syntax analysis finished
+INFO  14:44:01,672 - Program(
+  ProgramIdent(
+   test301
+  ) [ProgramIdent]
+  DeclarationList(
+    EmptyDeclarationList(
+    ) [EmptyDeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           niz
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatement(
+                Designator(
+                  DesignatorIdent(
+                   niz
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NewArrayF(
+                        Type(
+                         int
+                        ) [Type]
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NumConstF(
+                               3
+                              ) [NumConstF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [NewArrayF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatement]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            AssignStatement(
+              Designator(
+                DesignatorIdent(
+                 niz
+                ) [DesignatorIdent]
+                MultipleDesignators(
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                  DesignatorArray(
+                    Expression(
+                      OneAddExpression(
+                        OneMulFactor(
+                          NumConstF(
+                           2
+                          ) [NumConstF]
+                        ) [OneMulFactor]
+                      ) [OneAddExpression]
+                    ) [Expression]
+                  ) [DesignatorArray]
+                ) [MultipleDesignators]
+              ) [Designator]
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     2
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [AssignStatement]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 14:44:01,678 - In function  main na liniji 7
+INFO  14:44:01,679 - Semantic analysis finished
+INFO  14:44:01,680 - Writing bytecode
+INFO  14:44:01,680 - Overwriting byte file
+INFO  14:44:01,683 - Parsiranje  uspesno zavrseno!

@@ -1,0 +1,46 @@
+INFO  16:56:23,249 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  16:56:23,299 - #2 program
+INFO  16:56:23,299 - #39 test302
+INFO  16:56:23,299 - #7 const
+INFO  16:56:23,299 - #39 int
+INFO  16:56:23,300 - #39 jedan
+INFO  16:56:23,300 - #35 =
+INFO  16:56:23,300 - #38 1
+INFO  16:56:23,300 - #5 ;
+INFO  16:56:23,301 - #39 int
+INFO  16:56:23,301 - #39 i
+INFO  16:56:23,302 - #5 ;
+INFO  16:56:23,302 - #3 {
+INFO  16:56:23,302 - #24 void
+INFO  16:56:23,303 - #39 main
+INFO  16:56:23,303 - #17 (
+INFO  16:56:23,304 - #18 )
+INFO  16:56:23,304 - #3 {
+INFO  16:56:23,305 - #39 i
+INFO  16:56:23,305 - #35 =
+INFO  16:56:23,306 - #38 0
+INFO  16:56:23,306 - #5 ;
+INFO  16:56:23,308 - #10 for
+INFO  16:56:23,308 - #17 (
+INFO  16:56:23,308 - #5 ;
+INFO  16:56:23,309 - #39 i
+INFO  16:56:23,309 - #29 <
+INFO  16:56:23,309 - #38 10
+INFO  16:56:23,310 - #5 ;
+INFO  16:56:23,310 - #18 )
+INFO  16:56:23,311 - #3 {
+INFO  16:56:23,311 - #25 if
+INFO  16:56:23,311 - #17 (
+INFO  16:56:23,313 - #39 i
+INFO  16:56:23,313 - #19 ==
+INFO  16:56:23,313 - #38 3
+INFO  16:56:23,314 - #18 )
+INFO  16:56:23,314 - #3 {
+INFO  16:56:23,314 - #39 i
+INFO  16:56:23,314 - #33 ++
+INFO  16:56:23,314 - #5 ;
+INFO  16:56:23,314 - #4 }
+INFO  16:56:23,315 - #11 continue
+ERROR 16:56:23,319 - 
+Sintaksna greska na liniji 19
+ERROR 16:56:23,319 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 19
