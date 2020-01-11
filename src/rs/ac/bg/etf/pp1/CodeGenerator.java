@@ -337,12 +337,12 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(NonEmptyForEnd e) {
-		Code.putJump(forEnd.peekFirst());
+		Code.putJump(forCond.peekFirst());
 		Code.fixup(condJmp.removeFirst());
 	}
 	
 	public void visit(EmptyForEnd e) {
-		Code.putJump(forEnd.peekFirst());
+		Code.putJump(forCond.peekFirst());
 		Code.fixup(condJmp.removeFirst());
 	}
 	

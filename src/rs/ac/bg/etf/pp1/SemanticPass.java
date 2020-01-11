@@ -230,9 +230,10 @@ public class SemanticPass extends VisitorAdaptor {
 		 if(Tab.currentScope().findSymbol(name)!= null) {
 			 report_error("Symbol is already used in this function! ", p);
 		 }else{
-			 Obj o = Tab.insert(Obj.Var, name, declaredType.struct);
+			 Obj aName = Tab.find(type.getType() + "[]");
+			 Obj o = Tab.insert(Obj.Var, name, aName.getType());
 			 o.setFpPos(formalParamCnt);
-			 report_info("Formal parameter found " + name, p);
+			 report_info("Formal parameter found [] " + name, p);
 		 }		 
 	 }
 	 
