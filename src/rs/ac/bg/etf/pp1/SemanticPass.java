@@ -398,11 +398,11 @@ public class SemanticPass extends VisitorAdaptor {
 		 }
  
 	 public void visit(AssignStatement d) {
-		 if(d.getDesignator().getDesignatorIdent().obj.getKind() != Obj.Var) {
+		 if(((AssignStatementSttm) d).getDesignator().getDesignatorIdent().obj.getKind() != Obj.Var) {
 			 report_error("Designator is not var type!", d);
 			 return;
 		 }
-		 if(!d.getExpr().struct.assignableTo(d.getDesignator().obj.getType())) {
+		 if(!((AssignStatementSttm) d).getExpr().struct.assignableTo(((AssignStatementSttm) d).getDesignator().obj.getType())) {
 			 report_error("Invalid types assigned", d);
 		 }
 	 }

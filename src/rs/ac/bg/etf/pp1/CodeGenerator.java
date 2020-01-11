@@ -190,7 +190,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(AssignStatement a) {
-		Code.store(a.getDesignator().obj);
+		Code.store(((AssignStatementSttm) a).getDesignator().obj);
 	}
 	
 	public void visit(AddExpression a) {

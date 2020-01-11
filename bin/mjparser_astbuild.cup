@@ -141,8 +141,11 @@ Constant ::= (ConstNumber) IDENT:numIdent ASSIGN NUMBER:num {: RESULT=new ConstN
 							|
 							(ConstChar) IDENT:charIdent ASSIGN CHARCONST:c {: RESULT=new ConstChar(charIdent, c); RESULT.setLine(charIdentleft); :};
 
-VarDecl ::= (VariableDeclaration) Type:T1 VarNames:V2 SEMICOLON {: RESULT=new VariableDeclaration(T1, V2); RESULT.setLine(T1left); :};
-
+VarDecl ::= (VariableDeclaration) Type:T1 VarNames:V2 SEMICOLON {: RESULT=new VariableDeclaration(T1, V2); RESULT.setLine(T1left); :}
+						  |
+						  (ErrorVarDecl) error SEMICOLON
+                            {: parser.report_error(" last variable declaration error recovery: successful", null);  :} {: RESULT=new ErrorVarDecl(); :};
+                            
 VarDeclList ::=  (MultipleVariableDeclarations) VarDeclList:V1 VarDecl:V2 {: RESULT=new MultipleVariableDeclarations(V1, V2); RESULT.setLine(V1left); :}
 								   |
 								   (EmptyVariableDeclarations) {: RESULT=new EmptyVariableDeclarations(); :}  /*  epsilon  */;
@@ -150,10 +153,14 @@ VarDeclList ::=  (MultipleVariableDeclarations) VarDeclList:V1 VarDecl:V2 {: RES
 VarNames ::= (MultipleVariableNames) VarNames:V1 COMMA VarIdent:V2 {: RESULT=new MultipleVariableNames(V1, V2); RESULT.setLine(V1left); :}
 							    |
 							    (OneVariableName) VarIdent:V1 {: RESULT=new OneVariableName(V1); RESULT.setLine(V1left); :};
-
+			
 VarIdent ::= (VariableIdent) IDENT:var {: RESULT=new VariableIdent(var); RESULT.setLine(varleft); :}
 							|
-							(ArrayVariableIdent) IDENT:var LBRACK RBRACK {: RESULT=new ArrayVariableIdent(var); RESULT.setLine(varleft); :};
+							(ArrayVariableIdent) IDENT:var LBRACK RBRACK {: RESULT=new ArrayVariableIdent(var); RESULT.setLine(varleft); :}
+							|
+							(ErrorVarNames) error 
+                         	   {: parser.report_error("intern variable declaration error recovery: successful", null);  :} {: RESULT=new ErrorVarNames(); :};
+							
 							
 
 MethodDecl ::= (MethodDeclaration) MethodIdent:M1 FormParams:F2 VarDeclList:V3 LBRACE Statements:S4 RBRACE {: RESULT=new MethodDeclaration(M1, F2, V3, S4); RESULT.setLine(M1left); :};
@@ -184,7 +191,10 @@ OneFormParam ::= (UsualParameter) Type:T1 IDENT:param {: RESULT=new UsualParamet
 											|
 											(CharParameter)  Type:T1 IDENT:param ASSIGN CHARCONST:c {: RESULT=new CharParameter(T1, param, c); RESULT.setLine(T1left); :}
 											|
-											(BoolParameter) Type:T1 IDENT:param ASSIGN BOOLCONST:b {: RESULT=new BoolParameter(T1, param, b); RESULT.setLine(T1left); :};
+											(BoolParameter) Type:T1 IDENT:param ASSIGN BOOLCONST:b {: RESULT=new BoolParameter(T1, param, b); RESULT.setLine(T1left); :}
+											 |
+				                            (ParameterError) error
+				                            {: parser.report_error("formal parameter error recovery: successful", null); :} {: RESULT=new ParameterError(); :};
 											
 Statements ::= (MultipleStatements) Statements:S1  Statement:S2 {: RESULT=new MultipleStatements(S1, S2); RESULT.setLine(S1left); :}
 								  |
@@ -238,7 +248,10 @@ ArrayIndex ::= (ArrayExpr) Expr:E1 {: RESULT=new ArrayExpr(E1); RESULT.setLine(E
 								|
 								(ArrayDEC) Designator:D1 DEC {: RESULT=new ArrayDEC(D1); RESULT.setLine(D1left); :};
 
-AssignStatement ::= (AssignStatement) Designator:D1 ASSIGN Expr:E2 {: RESULT=new AssignStatement(D1, E2); RESULT.setLine(D1left); :};
+AssignStatement ::= (AssignStatementSttm) Designator:D1 ASSIGN Expr:E2 {: RESULT=new AssignStatementSttm(D1, E2); RESULT.setLine(D1left); :}
+											  |
+											  (ErrorAssign) error
+											  {: parser.report_error("assign statement error recovery: successful", null); :} {: RESULT=new ErrorAssign(); :};
 
 FunctionCall ::= (FunctionCall) Designator:D1 LPAREN FunctionCallParameter:F2 RPAREN {: RESULT=new FunctionCall(D1, F2); RESULT.setLine(D1left); :};
 
@@ -271,7 +284,9 @@ ForEnd ::= (NonEmptyForEnd) DesignatorStatement:D1 {: RESULT=new NonEmptyForEnd(
 
 Condition ::= (MultipleCondition) Condition:C1 OR CondTerm:C2 {: RESULT=new MultipleCondition(C1, C2); RESULT.setLine(C1left); :}
 							  |
-							  (OneCondition) CondTerm:C1 {: RESULT=new OneCondition(C1); RESULT.setLine(C1left); :};
+							  (OneCondition) CondTerm:C1 {: RESULT=new OneCondition(C1); RESULT.setLine(C1left); :}
+							  |
+							  (ErrorCondition) error {: RESULT=new ErrorCondition(); :};
 							  
 CondTerm ::= (MultipleConditionTerms) CondTerm:C1 AND CondFact:C2 {: RESULT=new MultipleConditionTerms(C1, C2); RESULT.setLine(C1left); :}
 							   |

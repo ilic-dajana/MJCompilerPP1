@@ -1,6 +1,6 @@
 // generated with ast extension for cup
 // version 0.8
-// 10/0/2020 19:34:32
+// 11/0/2020 15:27:12
 
 
 package rs.ac.bg.etf.pp1.ast;
@@ -26,6 +26,7 @@ public interface Visitor {
     public void visit(DeclList DeclList);
     public void visit(Term Term);
     public void visit(Condition Condition);
+    public void visit(AssignStatement AssignStatement);
     public void visit(Statements Statements);
     public void visit(VarNames VarNames);
     public void visit(FormParams FormParams);
@@ -82,6 +83,7 @@ public interface Visitor {
     public void visit(MultipleCondition MultipleCondition);
     public void visit(EmptyForEnd EmptyForEnd);
     public void visit(NonEmptyForEnd NonEmptyForEnd);
+    public void visit(ForConditionrError ForConditionrError);
     public void visit(EmptyForCondition EmptyForCondition);
     public void visit(NonEmptyForCondition NonEmptyForCondition);
     public void visit(EmptyForInit EmptyForInit);
@@ -94,7 +96,8 @@ public interface Visitor {
     public void visit(EmptyParameters EmptyParameters);
     public void visit(ActualParameters ActualParameters);
     public void visit(FunctionCall FunctionCall);
-    public void visit(AssignStatement AssignStatement);
+    public void visit(ErrorAssign ErrorAssign);
+    public void visit(AssignStatementSttm AssignStatementSttm);
     public void visit(ArrayDEC ArrayDEC);
     public void visit(ArrayINC ArrayINC);
     public void visit(ArrayExpr ArrayExpr);
@@ -121,6 +124,7 @@ public interface Visitor {
     public void visit(DesignatorStatements DesignatorStatements);
     public void visit(EmptyStatements EmptyStatements);
     public void visit(MultipleStatements MultipleStatements);
+    public void visit(ParameterError ParameterError);
     public void visit(BoolParameter BoolParameter);
     public void visit(CharParameter CharParameter);
     public void visit(NumberParameter NumberParameter);
@@ -136,12 +140,14 @@ public interface Visitor {
     public void visit(EmptyMethodDeclaration EmptyMethodDeclaration);
     public void visit(MultipleMethodDeclarations MultipleMethodDeclarations);
     public void visit(MethodDeclaration MethodDeclaration);
+    public void visit(ErrorVarNames ErrorVarNames);
     public void visit(ArrayVariableIdent ArrayVariableIdent);
     public void visit(VariableIdent VariableIdent);
     public void visit(OneVariableName OneVariableName);
     public void visit(MultipleVariableNames MultipleVariableNames);
     public void visit(EmptyVariableDeclarations EmptyVariableDeclarations);
     public void visit(MultipleVariableDeclarations MultipleVariableDeclarations);
+    public void visit(ErrorVarDecl ErrorVarDecl);
     public void visit(VariableDeclaration VariableDeclaration);
     public void visit(ConstChar ConstChar);
     public void visit(ConstBool ConstBool);

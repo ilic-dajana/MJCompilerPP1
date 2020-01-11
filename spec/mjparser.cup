@@ -141,8 +141,11 @@ Constant ::= (ConstNumber) IDENT:numIdent ASSIGN NUMBER:num
 							|
 							(ConstChar) IDENT:charIdent ASSIGN CHARCONST:c;
 
-VarDecl ::= (VariableDeclaration) Type VarNames SEMICOLON;
-
+VarDecl ::= (VariableDeclaration) Type VarNames SEMICOLON
+						  |
+						  (ErrorVarDecl) error SEMICOLON
+                            {: parser.report_error(" last variable declaration error recovery: successful", null);  :};
+                            
 VarDeclList ::=  (MultipleVariableDeclarations) VarDeclList VarDecl
 								   |
 								   (EmptyVariableDeclarations)  /*  epsilon  */;
@@ -150,10 +153,14 @@ VarDeclList ::=  (MultipleVariableDeclarations) VarDeclList VarDecl
 VarNames ::= (MultipleVariableNames) VarNames COMMA VarIdent
 							    |
 							    (OneVariableName) VarIdent;
-
+			
 VarIdent ::= (VariableIdent) IDENT:var
 							|
-							(ArrayVariableIdent) IDENT:var LBRACK RBRACK;
+							(ArrayVariableIdent) IDENT:var LBRACK RBRACK
+							|
+							(ErrorVarNames) error 
+                         	   {: parser.report_error("intern variable declaration error recovery: successful", null);  :};
+							
 							
 
 MethodDecl ::= (MethodDeclaration) MethodIdent FormParams VarDeclList LBRACE Statements RBRACE;
@@ -184,7 +191,10 @@ OneFormParam ::= (UsualParameter) Type IDENT:param
 											|
 											(CharParameter)  Type IDENT:param ASSIGN CHARCONST:c
 											|
-											(BoolParameter) Type IDENT:param ASSIGN BOOLCONST:b;
+											(BoolParameter) Type IDENT:param ASSIGN BOOLCONST:b
+											 |
+				                            (ParameterError) error
+				                            {: parser.report_error("formal parameter error recovery: successful", null); :};
 											
 Statements ::= (MultipleStatements) Statements  Statement
 								  |
@@ -238,7 +248,10 @@ ArrayIndex ::= (ArrayExpr) Expr
 								|
 								(ArrayDEC) Designator DEC;
 
-AssignStatement ::= (AssignStatement) Designator ASSIGN Expr;
+AssignStatement ::= (AssignStatementSttm) Designator ASSIGN Expr
+											  |
+											  (ErrorAssign) error
+											  {: parser.report_error("assign statement error recovery: successful", null); :};
 
 FunctionCall ::= (FunctionCall) Designator LPAREN FunctionCallParameter RPAREN;
 
@@ -263,7 +276,10 @@ ForInit ::= (NonEmptyForInit) DesignatorStatement
 						
 ForCondition ::= (NonEmptyForCondition) Condition
 									 |
-									 (EmptyForCondition) /* epsilon */;
+									 (EmptyForCondition) /* epsilon */
+									 |
+		                            (ForConditionrError) error
+		                            {: parser.report_error("for condition  error recovery: successful", null); :};
 
 ForEnd ::= (NonEmptyForEnd) DesignatorStatement
 						|
