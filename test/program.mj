@@ -1,15 +1,56 @@
-//Test 302
+program test301
 
-program test302
-int i;
+	
+	const int jedan = 1;
+	const int pet = 5;
 
-int niz[];
+	int niz[];
+	char nizch[];
+	bool b[];
+	
 {
-	void main()
+	int inc(int broj)
 	{
-		i = 0;
-		niz = new int[3];
-		niz[i++] = 1;
+		return broj + 1;
+	}
+
+	
+
+	void main()	
+		int bodovi;
+		bool bl;
+		char c;
+		
+	{
+		
+		niz=new int[4];
+		nizch=new char[4];
+		b=new bool[5];
+		
+		read(b[0]);
+		read(niz[0]);
+		
+		print(b[0]);
+		print(niz[0]);
+		
+		
+		
+		niz[0]++;
+		print(niz[0]);
+		niz[0]++;
+		bodovi=niz[0];
+		print(bodovi);
+		niz[bodovi]++;
+		niz[0]++;
+		print(niz[0]);
+		
+		b[2]=false;
+		bl=b[2];
+		print(bl);
+		print(niz[0]);
+		bodovi=inc(niz[0]);
+		print(bodovi);
+		
+	
 	}
 }
-

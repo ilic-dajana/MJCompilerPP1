@@ -612,7 +612,8 @@ public class SemanticPass extends VisitorAdaptor {
 	 }
 	 
 	public void visit(VariableDeclaration v) {
-		varDeclCount++;
+		if(currentMethod == null)
+			varDeclCount++;
 	}
 
 	public boolean passed() {

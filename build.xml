@@ -29,6 +29,27 @@
 			<arg value="spec/mjlexer.lex"/>
 		</java>
 	</target>
+	
+	
+	    <target name="disasm">
+	        <java classname="rs.etf.pp1.mj.runtime.disasm">
+	            <arg value="test/program.obj"/>
+	            <classpath>
+	                <pathelement location="lib/mj-runtime.jar"/>
+	            </classpath>
+	        </java>
+	    </target>
+	
+	
+	    <target name="runobj" depends="disasm">
+	        <java classname="rs.etf.pp1.mj.runtime.Run">
+	            <arg value="test/program.obj"/>
+	        	<arg value="-debug"/>
+	            <classpath>
+	                <pathelement location="lib/mj-runtime.jar"/>
+	            </classpath>
+	        </java>
+	    </target>
 
 	<target name="parserGen" depends="delete">
 		<java jar="lib/cup_v10k.jar" fork="true">

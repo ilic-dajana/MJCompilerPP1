@@ -276,7 +276,10 @@ ForInit ::= (NonEmptyForInit) DesignatorStatement:D1 {: RESULT=new NonEmptyForIn
 						
 ForCondition ::= (NonEmptyForCondition) Condition:C1 {: RESULT=new NonEmptyForCondition(C1); RESULT.setLine(C1left); :}
 									 |
-									 (EmptyForCondition) {: RESULT=new EmptyForCondition(); :} /* epsilon */;
+									 (EmptyForCondition) {: RESULT=new EmptyForCondition(); :} /* epsilon */
+									 |
+		                            (ForConditionrError) error
+		                            {: parser.report_error("for condition  error recovery: successful", null); :} {: RESULT=new ForConditionrError(); :};
 
 ForEnd ::= (NonEmptyForEnd) DesignatorStatement:D1 {: RESULT=new NonEmptyForEnd(D1); RESULT.setLine(D1left); :}
 						|
@@ -284,9 +287,7 @@ ForEnd ::= (NonEmptyForEnd) DesignatorStatement:D1 {: RESULT=new NonEmptyForEnd(
 
 Condition ::= (MultipleCondition) Condition:C1 OR CondTerm:C2 {: RESULT=new MultipleCondition(C1, C2); RESULT.setLine(C1left); :}
 							  |
-							  (OneCondition) CondTerm:C1 {: RESULT=new OneCondition(C1); RESULT.setLine(C1left); :}
-							  |
-							  (ErrorCondition) error {: RESULT=new ErrorCondition(); :};
+							  (OneCondition) CondTerm:C1 {: RESULT=new OneCondition(C1); RESULT.setLine(C1left); :};
 							  
 CondTerm ::= (MultipleConditionTerms) CondTerm:C1 AND CondFact:C2 {: RESULT=new MultipleConditionTerms(C1, C2); RESULT.setLine(C1left); :}
 							   |

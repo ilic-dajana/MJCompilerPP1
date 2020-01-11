@@ -159,11 +159,11 @@ public class CodeGenerator extends VisitorAdaptor {
 	public void visit(Designator d) {
 		SyntaxNode parent = d.getParent();
 		
-		/*
+		
 		 if(d.obj.getType().getKind() == Struct.Array){
 		 	Code.put(Code.pop);
 		 }
-		 */
+		 
 		
 		if(IncrementDesignator.class == parent.getClass()
 				|| DecrementDesignator.class == parent.getClass()) {
@@ -171,7 +171,7 @@ public class CodeGenerator extends VisitorAdaptor {
 				Code.put(Code.dup2);
 			}
 		}
-		if(AssignStatement.class != parent.getClass() && FunctionCall.class != parent.getClass()
+		if(AssignStatementSttm.class != parent.getClass() && FunctionCall.class != parent.getClass()
 				&& ReadStatement.class != parent.getClass() && d.obj.getType().getKind() != Struct.Array) {
 			Code.load(d.obj);
 		}
@@ -189,8 +189,8 @@ public class CodeGenerator extends VisitorAdaptor {
 		Code.store(i.getDesignator().obj);
 	}
 	
-	public void visit(AssignStatement a) {
-		Code.store(((AssignStatementSttm) a).getDesignator().obj);
+	public void visit(AssignStatementSttm a) {
+		Code.store(a.getDesignator().obj);
 	}
 	
 	public void visit(AddExpression a) {
@@ -267,7 +267,7 @@ public class CodeGenerator extends VisitorAdaptor {
 	
 	public void visit(NewArrayF a) {
 		Code.put(Code.newarray);
-		if(a.struct.getKind() == Struct.Char)
+		if(a.getType().struct == Tab.charType)
 			Code.put(0);
 		else
 			Code.put(1);
