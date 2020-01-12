@@ -1,0 +1,174 @@
+INFO  14:58:19,797 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:58:19,823 - #2 program
+INFO  14:58:19,823 - #39 test
+INFO  14:58:19,823 - #39 int
+INFO  14:58:19,824 - #5 ;
+ERROR 14:58:19,825 - 
+Sintaksna greska na liniji 2
+INFO  14:58:19,825 - #39 char
+INFO  14:58:19,825 - #39 a
+INFO  14:58:19,825 - #22 ,
+ERROR 14:58:19,826 - intern variable declaration error recovery: successful
+INFO  14:58:19,826 - #5 ;
+ERROR 14:58:19,826 - 
+Sintaksna greska na liniji 3
+INFO  14:58:19,826 - #3 {
+INFO  14:58:19,827 - #24 void
+INFO  14:58:19,827 - #39 main
+ERROR 14:58:19,827 - intern variable declaration error recovery: successful
+INFO  14:58:19,827 - #17 (
+INFO  14:58:19,828 - #18 )
+INFO  14:58:19,828 - #39 int
+INFO  14:58:19,828 - #39 a
+INFO  14:58:19,829 - #22 ,
+INFO  14:58:19,829 - #39 i
+INFO  14:58:19,829 - #5 ;
+INFO  14:58:19,829 - #3 {
+INFO  14:58:19,829 - #39 a
+INFO  14:58:19,830 - #35 =
+INFO  14:58:19,831 - #5 ;
+ERROR 14:58:19,831 - 
+Sintaksna greska na liniji 11
+INFO  14:58:19,831 - #39 i
+INFO  14:58:19,831 - #35 =
+INFO  14:58:19,831 - #38 0
+ERROR 14:58:19,831 - assign statement error recovery: successful
+INFO  14:58:19,832 - #5 ;
+INFO  14:58:19,832 - #10 for
+INFO  14:58:19,833 - #17 (
+INFO  14:58:19,833 - #5 ;
+INFO  14:58:19,833 - #39 i
+INFO  14:58:19,833 - #29 <
+INFO  14:58:19,833 - #5 ;
+ERROR 14:58:19,834 - 
+Sintaksna greska na liniji 14
+INFO  14:58:19,834 - #18 )
+INFO  14:58:19,834 - #3 {
+INFO  14:58:19,834 - #4 }
+ERROR 14:58:19,834 - for condition  error recovery: successful
+INFO  14:58:19,835 - #4 }
+INFO  14:58:19,835 - #4 }
+INFO  14:58:19,836 - Syntax analysis finished
+INFO  14:58:19,837 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            ErrorVarNames(
+            ) [ErrorVarNames]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         char
+        ) [Type]
+        MultipleVariableNames(
+          OneVariableName(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [OneVariableName]
+          ErrorVarNames(
+          ) [ErrorVarNames]
+        ) [MultipleVariableNames]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      MultipleVariableDeclarations(
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          MultipleVariableNames(
+            OneVariableName(
+              VariableIdent(
+               a
+              ) [VariableIdent]
+            ) [OneVariableName]
+            VariableIdent(
+             i
+            ) [VariableIdent]
+          ) [MultipleVariableNames]
+        ) [VariableDeclaration]
+      ) [MultipleVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          MultipleStatements(
+            EmptyStatements(
+            ) [EmptyStatements]
+            DesignatorStatements(
+              AssignDesignator(
+                ErrorAssign(
+                ) [ErrorAssign]
+              ) [AssignDesignator]
+            ) [DesignatorStatements]
+          ) [MultipleStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatementSttm(
+                Designator(
+                  DesignatorIdent(
+                   i
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NumConstF(
+                       0
+                      ) [NumConstF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatementSttm]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        FORStatement(
+          ForIdent(
+          ) [ForIdent]
+          EmptyForInit(
+          ) [EmptyForInit]
+          ForConditionrError(
+          ) [ForConditionrError]
+          EmptyForEnd(
+          ) [EmptyForEnd]
+          StatementBlock(
+            EmptyStatements(
+            ) [EmptyStatements]
+          ) [StatementBlock]
+        ) [FORStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 14:58:19,845 - In function  main na liniji 8
+INFO  14:58:19,846 - Semantic analysis finished
+ERROR 14:58:19,846 - Parsiranje nije uspesno zavrseno!

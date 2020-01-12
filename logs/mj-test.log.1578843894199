@@ -1,0 +1,182 @@
+INFO  15:02:19,314 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  15:02:19,351 - #2 program
+INFO  15:02:19,351 - #39 test
+INFO  15:02:19,351 - #39 int
+INFO  15:02:19,351 - #39 a
+INFO  15:02:19,352 - #5 ;
+INFO  15:02:19,352 - #39 char
+INFO  15:02:19,353 - #39 a
+INFO  15:02:19,353 - #22 ,
+INFO  15:02:19,353 - #39 b
+INFO  15:02:19,353 - #5 ;
+INFO  15:02:19,353 - #3 {
+INFO  15:02:19,353 - #24 void
+INFO  15:02:19,354 - #39 test
+INFO  15:02:19,354 - #17 (
+INFO  15:02:19,354 - #39 int
+INFO  15:02:19,354 - #18 )
+ERROR 15:02:19,355 - 
+Sintaksna greska na liniji 6
+INFO  15:02:19,355 - #3 {
+INFO  15:02:19,355 - #4 }
+INFO  15:02:19,355 - #24 void
+ERROR 15:02:19,355 - formal parameter error recovery: successful
+INFO  15:02:19,357 - #39 main
+INFO  15:02:19,357 - #17 (
+INFO  15:02:19,357 - #18 )
+INFO  15:02:19,358 - #39 int
+INFO  15:02:19,358 - #39 i
+INFO  15:02:19,358 - #5 ;
+INFO  15:02:19,358 - #3 {
+INFO  15:02:19,358 - #39 c
+INFO  15:02:19,358 - #35 =
+INFO  15:02:19,360 - #38 3
+INFO  15:02:19,360 - #5 ;
+INFO  15:02:19,360 - #39 i
+INFO  15:02:19,361 - #35 =
+INFO  15:02:19,361 - #38 0
+INFO  15:02:19,361 - #5 ;
+INFO  15:02:19,361 - #4 }
+INFO  15:02:19,361 - #4 }
+INFO  15:02:19,362 - Syntax analysis finished
+INFO  15:02:19,363 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         char
+        ) [Type]
+        MultipleVariableNames(
+          OneVariableName(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [OneVariableName]
+          VariableIdent(
+           b
+          ) [VariableIdent]
+        ) [MultipleVariableNames]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    MultipleMethodDeclarations(
+      EmptyMethodDeclaration(
+      ) [EmptyMethodDeclaration]
+      MethodDeclaration(
+        MethodIdent(
+          VoidType(
+          ) [VoidType]
+         test
+        ) [MethodIdent]
+        FormalParameters(
+          OneFormalParameter(
+            ParameterError(
+            ) [ParameterError]
+          ) [OneFormalParameter]
+        ) [FormalParameters]
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        EmptyStatements(
+        ) [EmptyStatements]
+      ) [MethodDeclaration]
+    ) [MultipleMethodDeclarations]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      MultipleVariableDeclarations(
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             i
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [MultipleVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatementSttm(
+                Designator(
+                  DesignatorIdent(
+                   c
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NumConstF(
+                       3
+                      ) [NumConstF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatementSttm]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            AssignStatementSttm(
+              Designator(
+                DesignatorIdent(
+                 i
+                ) [DesignatorIdent]
+                EmptyDesignator(
+                ) [EmptyDesignator]
+              ) [Designator]
+              Expression(
+                OneAddExpression(
+                  OneMulFactor(
+                    NumConstF(
+                     0
+                    ) [NumConstF]
+                  ) [OneMulFactor]
+                ) [OneAddExpression]
+              ) [Expression]
+            ) [AssignStatementSttm]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 15:02:19,370 - In function  test na liniji 6
+ERROR 15:02:19,370 - In function  main na liniji 9
+ERROR 15:02:19,370 - Missing declaration  na liniji 12
+INFO  15:02:19,371 - Semantic analysis finished
+ERROR 15:02:19,371 - Parsiranje nije uspesno zavrseno!

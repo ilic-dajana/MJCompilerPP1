@@ -1,0 +1,443 @@
+INFO  17:45:41,867 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  17:45:41,900 - #2 program
+INFO  17:45:41,900 - #39 test
+INFO  17:45:41,900 - #39 int
+INFO  17:45:41,901 - #39 a
+INFO  17:45:41,901 - #36 [
+INFO  17:45:41,901 - #37 ]
+INFO  17:45:41,901 - #5 ;
+INFO  17:45:41,902 - #3 {
+INFO  17:45:41,902 - #24 void
+INFO  17:45:41,903 - #39 test
+INFO  17:45:41,903 - #17 (
+INFO  17:45:41,904 - #39 int
+INFO  17:45:41,904 - #39 ab
+INFO  17:45:41,904 - #36 [
+INFO  17:45:41,904 - #37 ]
+INFO  17:45:41,904 - #18 )
+INFO  17:45:41,904 - #3 {
+INFO  17:45:41,905 - #39 ab
+INFO  17:45:41,905 - #36 [
+INFO  17:45:41,907 - #38 0
+INFO  17:45:41,907 - #37 ]
+INFO  17:45:41,908 - #35 =
+INFO  17:45:41,909 - #38 0
+INFO  17:45:41,909 - #5 ;
+INFO  17:45:41,909 - #39 ab
+INFO  17:45:41,910 - #36 [
+INFO  17:45:41,910 - #38 1
+INFO  17:45:41,910 - #37 ]
+INFO  17:45:41,910 - #35 =
+INFO  17:45:41,910 - #38 1
+INFO  17:45:41,910 - #5 ;
+INFO  17:45:41,910 - #4 }
+INFO  17:45:41,910 - #24 void
+INFO  17:45:41,910 - #39 main
+INFO  17:45:41,910 - #17 (
+INFO  17:45:41,911 - #18 )
+INFO  17:45:41,911 - #39 int
+INFO  17:45:41,911 - #39 i
+INFO  17:45:41,911 - #22 ,
+INFO  17:45:41,911 - #39 t
+INFO  17:45:41,911 - #5 ;
+INFO  17:45:41,912 - #3 {
+INFO  17:45:41,912 - #39 a
+INFO  17:45:41,912 - #35 =
+INFO  17:45:41,912 - #8 new
+INFO  17:45:41,912 - #39 int
+INFO  17:45:41,912 - #36 [
+INFO  17:45:41,912 - #38 2
+INFO  17:45:41,912 - #37 ]
+INFO  17:45:41,912 - #5 ;
+INFO  17:45:41,913 - #39 test
+INFO  17:45:41,913 - #17 (
+INFO  17:45:41,913 - #39 a
+INFO  17:45:41,913 - #18 )
+INFO  17:45:41,913 - #5 ;
+INFO  17:45:41,914 - #39 i
+INFO  17:45:41,914 - #35 =
+INFO  17:45:41,914 - #39 a
+INFO  17:45:41,915 - #36 [
+INFO  17:45:41,915 - #38 0
+INFO  17:45:41,915 - #37 ]
+INFO  17:45:41,915 - #5 ;
+INFO  17:45:41,915 - #39 t
+INFO  17:45:41,915 - #35 =
+INFO  17:45:41,915 - #39 a
+INFO  17:45:41,919 - #36 [
+INFO  17:45:41,919 - #38 1
+INFO  17:45:41,919 - #37 ]
+INFO  17:45:41,920 - #5 ;
+INFO  17:45:41,920 - #23 print
+INFO  17:45:41,920 - #17 (
+INFO  17:45:41,920 - #39 i
+INFO  17:45:41,920 - #18 )
+INFO  17:45:41,920 - #5 ;
+INFO  17:45:41,921 - #23 print
+INFO  17:45:41,921 - #17 (
+INFO  17:45:41,921 - #39 t
+INFO  17:45:41,921 - #18 )
+INFO  17:45:41,921 - #5 ;
+INFO  17:45:41,921 - #4 }
+INFO  17:45:41,921 - #4 }
+INFO  17:45:41,922 - Syntax analysis finished
+INFO  17:45:41,924 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    EmptyDeclarationList(
+    ) [EmptyDeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ArrayVariableIdent(
+           a
+          ) [ArrayVariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    MultipleMethodDeclarations(
+      EmptyMethodDeclaration(
+      ) [EmptyMethodDeclaration]
+      MethodDeclaration(
+        MethodIdent(
+          VoidType(
+          ) [VoidType]
+         test
+        ) [MethodIdent]
+        FormalParameters(
+          OneFormalParameter(
+            ArrayParameter(
+              Type(
+               int
+              ) [Type]
+             ab
+            ) [ArrayParameter]
+          ) [OneFormalParameter]
+        ) [FormalParameters]
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        MultipleStatements(
+          MultipleStatements(
+            EmptyStatements(
+            ) [EmptyStatements]
+            DesignatorStatements(
+              AssignDesignator(
+                AssignStatementSttm(
+                  Designator(
+                    DesignatorIdent(
+                     ab
+                    ) [DesignatorIdent]
+                    MultipleDesignators(
+                      EmptyDesignator(
+                      ) [EmptyDesignator]
+                      DesignatorArray(
+                        ArrayExpr(
+                          Expression(
+                            OneAddExpression(
+                              OneMulFactor(
+                                NumConstF(
+                                 0
+                                ) [NumConstF]
+                              ) [OneMulFactor]
+                            ) [OneAddExpression]
+                          ) [Expression]
+                        ) [ArrayExpr]
+                      ) [DesignatorArray]
+                    ) [MultipleDesignators]
+                  ) [Designator]
+                  Expression(
+                    OneAddExpression(
+                      OneMulFactor(
+                        NumConstF(
+                         0
+                        ) [NumConstF]
+                      ) [OneMulFactor]
+                    ) [OneAddExpression]
+                  ) [Expression]
+                ) [AssignStatementSttm]
+              ) [AssignDesignator]
+            ) [DesignatorStatements]
+          ) [MultipleStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatementSttm(
+                Designator(
+                  DesignatorIdent(
+                   ab
+                  ) [DesignatorIdent]
+                  MultipleDesignators(
+                    EmptyDesignator(
+                    ) [EmptyDesignator]
+                    DesignatorArray(
+                      ArrayExpr(
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NumConstF(
+                               1
+                              ) [NumConstF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [ArrayExpr]
+                    ) [DesignatorArray]
+                  ) [MultipleDesignators]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NumConstF(
+                       1
+                      ) [NumConstF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatementSttm]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+      ) [MethodDeclaration]
+    ) [MultipleMethodDeclarations]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      MultipleVariableDeclarations(
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          MultipleVariableNames(
+            OneVariableName(
+              VariableIdent(
+               i
+              ) [VariableIdent]
+            ) [OneVariableName]
+            VariableIdent(
+             t
+            ) [VariableIdent]
+          ) [MultipleVariableNames]
+        ) [VariableDeclaration]
+      ) [MultipleVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          MultipleStatements(
+            MultipleStatements(
+              MultipleStatements(
+                MultipleStatements(
+                  EmptyStatements(
+                  ) [EmptyStatements]
+                  DesignatorStatements(
+                    AssignDesignator(
+                      AssignStatementSttm(
+                        Designator(
+                          DesignatorIdent(
+                           a
+                          ) [DesignatorIdent]
+                          EmptyDesignator(
+                          ) [EmptyDesignator]
+                        ) [Designator]
+                        Expression(
+                          OneAddExpression(
+                            OneMulFactor(
+                              NewArrayF(
+                                Type(
+                                 int
+                                ) [Type]
+                                Expression(
+                                  OneAddExpression(
+                                    OneMulFactor(
+                                      NumConstF(
+                                       2
+                                      ) [NumConstF]
+                                    ) [OneMulFactor]
+                                  ) [OneAddExpression]
+                                ) [Expression]
+                              ) [NewArrayF]
+                            ) [OneMulFactor]
+                          ) [OneAddExpression]
+                        ) [Expression]
+                      ) [AssignStatementSttm]
+                    ) [AssignDesignator]
+                  ) [DesignatorStatements]
+                ) [MultipleStatements]
+                DesignatorStatements(
+                  FunctionCallDesignator(
+                    FunctionCall(
+                      Designator(
+                        DesignatorIdent(
+                         test
+                        ) [DesignatorIdent]
+                        EmptyDesignator(
+                        ) [EmptyDesignator]
+                      ) [Designator]
+                      ActualParameters(
+                        OneActualParameter(
+                          Expression(
+                            OneAddExpression(
+                              OneMulFactor(
+                                DesignatorF(
+                                  Designator(
+                                    DesignatorIdent(
+                                     a
+                                    ) [DesignatorIdent]
+                                    EmptyDesignator(
+                                    ) [EmptyDesignator]
+                                  ) [Designator]
+                                ) [DesignatorF]
+                              ) [OneMulFactor]
+                            ) [OneAddExpression]
+                          ) [Expression]
+                        ) [OneActualParameter]
+                      ) [ActualParameters]
+                    ) [FunctionCall]
+                  ) [FunctionCallDesignator]
+                ) [DesignatorStatements]
+              ) [MultipleStatements]
+              DesignatorStatements(
+                AssignDesignator(
+                  AssignStatementSttm(
+                    Designator(
+                      DesignatorIdent(
+                       i
+                      ) [DesignatorIdent]
+                      EmptyDesignator(
+                      ) [EmptyDesignator]
+                    ) [Designator]
+                    Expression(
+                      OneAddExpression(
+                        OneMulFactor(
+                          DesignatorF(
+                            Designator(
+                              DesignatorIdent(
+                               a
+                              ) [DesignatorIdent]
+                              MultipleDesignators(
+                                EmptyDesignator(
+                                ) [EmptyDesignator]
+                                DesignatorArray(
+                                  ArrayExpr(
+                                    Expression(
+                                      OneAddExpression(
+                                        OneMulFactor(
+                                          NumConstF(
+                                           0
+                                          ) [NumConstF]
+                                        ) [OneMulFactor]
+                                      ) [OneAddExpression]
+                                    ) [Expression]
+                                  ) [ArrayExpr]
+                                ) [DesignatorArray]
+                              ) [MultipleDesignators]
+                            ) [Designator]
+                          ) [DesignatorF]
+                        ) [OneMulFactor]
+                      ) [OneAddExpression]
+                    ) [Expression]
+                  ) [AssignStatementSttm]
+                ) [AssignDesignator]
+              ) [DesignatorStatements]
+            ) [MultipleStatements]
+            DesignatorStatements(
+              AssignDesignator(
+                AssignStatementSttm(
+                  Designator(
+                    DesignatorIdent(
+                     t
+                    ) [DesignatorIdent]
+                    EmptyDesignator(
+                    ) [EmptyDesignator]
+                  ) [Designator]
+                  Expression(
+                    OneAddExpression(
+                      OneMulFactor(
+                        DesignatorF(
+                          Designator(
+                            DesignatorIdent(
+                             a
+                            ) [DesignatorIdent]
+                            MultipleDesignators(
+                              EmptyDesignator(
+                              ) [EmptyDesignator]
+                              DesignatorArray(
+                                ArrayExpr(
+                                  Expression(
+                                    OneAddExpression(
+                                      OneMulFactor(
+                                        NumConstF(
+                                         1
+                                        ) [NumConstF]
+                                      ) [OneMulFactor]
+                                    ) [OneAddExpression]
+                                  ) [Expression]
+                                ) [ArrayExpr]
+                              ) [DesignatorArray]
+                            ) [MultipleDesignators]
+                          ) [Designator]
+                        ) [DesignatorF]
+                      ) [OneMulFactor]
+                    ) [OneAddExpression]
+                  ) [Expression]
+                ) [AssignStatementSttm]
+              ) [AssignDesignator]
+            ) [DesignatorStatements]
+          ) [MultipleStatements]
+          PrintOneStatement(
+            Expression(
+              OneAddExpression(
+                OneMulFactor(
+                  DesignatorF(
+                    Designator(
+                      DesignatorIdent(
+                       i
+                      ) [DesignatorIdent]
+                      EmptyDesignator(
+                      ) [EmptyDesignator]
+                    ) [Designator]
+                  ) [DesignatorF]
+                ) [OneMulFactor]
+              ) [OneAddExpression]
+            ) [Expression]
+          ) [PrintOneStatement]
+        ) [MultipleStatements]
+        PrintOneStatement(
+          Expression(
+            OneAddExpression(
+              OneMulFactor(
+                DesignatorF(
+                  Designator(
+                    DesignatorIdent(
+                     t
+                    ) [DesignatorIdent]
+                    EmptyDesignator(
+                    ) [EmptyDesignator]
+                  ) [Designator]
+                ) [DesignatorF]
+              ) [OneMulFactor]
+            ) [OneAddExpression]
+          ) [Expression]
+        ) [PrintOneStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 17:45:41,932 - In function  test na liniji 5
+ERROR 17:45:41,932 - Formal parameter found [] ab na liniji 5
+ERROR 17:45:41,933 - In function  main na liniji 10
+INFO  17:45:41,934 - Semantic analysis finished
+INFO  17:45:41,935 - Writing bytecode
+INFO  17:45:41,935 - Overwriting byte file
+INFO  17:45:41,937 - Parsiranje  uspesno zavrseno!

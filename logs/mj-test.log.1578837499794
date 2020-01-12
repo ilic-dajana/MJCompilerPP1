@@ -1,0 +1,118 @@
+INFO  14:57:33,024 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:57:33,052 - #2 program
+INFO  14:57:33,052 - #39 test
+INFO  14:57:33,052 - #39 int
+INFO  14:57:33,053 - #5 ;
+ERROR 14:57:33,053 - 
+Sintaksna greska na liniji 2
+INFO  14:57:33,053 - #39 char
+INFO  14:57:33,053 - #39 a
+INFO  14:57:33,054 - #22 ,
+ERROR 14:57:33,054 - intern variable declaration error recovery: successful
+INFO  14:57:33,055 - #5 ;
+ERROR 14:57:33,055 - 
+Sintaksna greska na liniji 3
+INFO  14:57:33,055 - #3 {
+INFO  14:57:33,055 - #24 void
+INFO  14:57:33,055 - #39 main
+ERROR 14:57:33,056 - intern variable declaration error recovery: successful
+INFO  14:57:33,057 - #17 (
+INFO  14:57:33,057 - #18 )
+INFO  14:57:33,058 - #39 int
+INFO  14:57:33,059 - #39 a
+INFO  14:57:33,059 - #22 ,
+INFO  14:57:33,059 - #39 b
+INFO  14:57:33,059 - #5 ;
+INFO  14:57:33,059 - #3 {
+INFO  14:57:33,059 - #39 a
+INFO  14:57:33,060 - #35 =
+INFO  14:57:33,061 - #5 ;
+ERROR 14:57:33,061 - 
+Sintaksna greska na liniji 11
+INFO  14:57:33,061 - #4 }
+INFO  14:57:33,061 - #4 }
+ERROR 14:57:33,061 - assign statement error recovery: successful
+INFO  14:57:33,062 - Syntax analysis finished
+INFO  14:57:33,064 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            ErrorVarNames(
+            ) [ErrorVarNames]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         char
+        ) [Type]
+        MultipleVariableNames(
+          OneVariableName(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [OneVariableName]
+          ErrorVarNames(
+          ) [ErrorVarNames]
+        ) [MultipleVariableNames]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      MultipleVariableDeclarations(
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          MultipleVariableNames(
+            OneVariableName(
+              VariableIdent(
+               a
+              ) [VariableIdent]
+            ) [OneVariableName]
+            VariableIdent(
+             b
+            ) [VariableIdent]
+          ) [MultipleVariableNames]
+        ) [VariableDeclaration]
+      ) [MultipleVariableDeclarations]
+      MultipleStatements(
+        EmptyStatements(
+        ) [EmptyStatements]
+        DesignatorStatements(
+          AssignDesignator(
+            ErrorAssign(
+            ) [ErrorAssign]
+          ) [AssignDesignator]
+        ) [DesignatorStatements]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 14:57:33,072 - In function  main na liniji 8
+INFO  14:57:33,072 - Semantic analysis finished
+ERROR 14:57:33,072 - Parsiranje nije uspesno zavrseno!

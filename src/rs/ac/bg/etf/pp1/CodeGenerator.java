@@ -72,13 +72,40 @@ public class CodeGenerator extends VisitorAdaptor {
 	}
 	
 	public void visit(PrintMultipleStatement p) {
-		if(p.getExpr().struct == Tab.charType) {
-			Code.loadConst(p.getNum());
-			Code.put(Code.bprint);
+		Integer cnt = p.getNum();
+		if((cnt % 2) == 1) {
+			int incr = cnt / 2;
+			for(int i  = 0 ; i < incr*2 ; i++)
+				Code.put(Code.dup);
 		}else {
-			Code.loadConst(p.getNum());
-			Code.put(Code.print);
+			for(int i = 0; i < cnt - 1; i++)
+				Code.put(Code.dup);
 		}
+		
+		if(p.getExpr().struct == Tab.intType) {
+			for(int i = 0; i < cnt; i++) {
+				Code.loadConst(5);
+				Code.put(Code.print);
+			}
+		}else if(p.getExpr().struct == Tab.charType) {			
+			for(int i = 0; i < cnt; i++) {
+				Code.loadConst(1);
+				Code.put(Code.bprint);
+			}
+		}else {
+			for(int i = 0; i < cnt; i++) {
+				Code.loadConst(1);
+				Code.put(Code.print);
+			}
+		}
+		
+//		if(p.getExpr().struct == Tab.charType) {
+//			Code.loadConst(p.getNum());
+//			Code.put(Code.bprint);
+//		}else {
+//			Code.loadConst(p.getNum());
+//			Code.put(Code.print);
+//		}
 	}
 	
 	public void visit(ReadStatement r) {
@@ -160,7 +187,7 @@ public class CodeGenerator extends VisitorAdaptor {
 		SyntaxNode parent = d.getParent();
 		
 		
-		 if(d.obj.getType().getKind() == Struct.Array){
+		if(d.obj.getType().getKind() == Struct.Array  && d.getParent().getClass() != DesignatorF.class){
 		 	Code.put(Code.pop);
 		 }
 		 

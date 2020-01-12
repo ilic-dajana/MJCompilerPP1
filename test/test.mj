@@ -1,0 +1,115 @@
+program test
+char the_answer[];
+const int SIX = 6;
+const bool ibool = false;
+int i;
+{
+
+bool alwaysTrue() {
+	return true;
+}
+
+bool alwaysFalse() {
+	return false;
+}
+
+int multiply(int a, int b){
+	return a*b;
+}
+
+void print13(int t){
+	if(t == 1 && alwaysTrue()){
+		print(1);
+		t = 2;
+	}
+	for(i = 1; i < t; i++){
+		if( i == 1){
+			print(t);
+			t = 3;
+			break;
+		}else{
+			t = 2;
+		}			
+	}
+	if( alwaysFalse() != true){
+		print(t);
+	}
+
+}
+
+void theAnswer() int i, len; {
+	 	len = 17;
+        the_answer = new char[len];
+        the_answer[0] = '7';
+        the_answer[1] = ' ';
+        the_answer[2] = ' ';
+        the_answer[3] = 'i';
+        the_answer[4] = 's';
+        the_answer[5] = ' ';
+        the_answer[6] = 't';
+        the_answer[7] = 'h';
+        the_answer[8] = 'e';
+        the_answer[9] = ' ';
+        the_answer[10] = 'A';
+        the_answer[11] = 'n';
+        the_answer[12] = 's';
+        the_answer[13] = 'w';
+        the_answer[14] = 'e';
+        the_answer[15] = 'r';
+        the_answer[16] = '!';
+        for (i = 0; i < len; i++) {
+            print(the_answer[i]);
+        }
+}
+
+void main()
+char c;
+int t;
+int niz[];
+{
+		niz = new int[4];
+		print(alwaysFalse());
+		print13(1);
+		
+		for(t = 4; t <6; t++){
+			if(t == 5){
+				continue;
+			}else{
+				print(t);
+				break;
+			}
+		}
+				
+		t++;
+		print(t);
+		print(SIX);
+		
+        print(eol);
+		print('P');
+        print('r');
+        print('e');
+        print('s');
+        print('s');
+        print(' ');
+        print('a');
+        print(' ');
+        print('f');
+        print('o');
+        print('r');
+        print(' ');
+        print('a');
+        print('n');
+        print('s');
+        print('w');
+        print('e');
+        print('r');
+        print('.',3);
+		print(eol);
+		
+		read(c);
+		if( c== 'a' )
+			theAnswer();
+		else
+			print(-1);	
+	}
+}

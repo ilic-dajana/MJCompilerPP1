@@ -1,0 +1,57 @@
+INFO  14:55:42,328 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:55:42,358 - #2 program
+INFO  14:55:42,359 - #39 test
+INFO  14:55:42,359 - #39 dada
+INFO  14:55:42,359 - #39 d
+INFO  14:55:42,360 - #5 ;
+INFO  14:55:42,360 - #3 {
+INFO  14:55:42,360 - #24 void
+INFO  14:55:42,361 - #39 main
+INFO  14:55:42,361 - #17 (
+INFO  14:55:42,361 - #18 )
+INFO  14:55:42,362 - #3 {
+INFO  14:55:42,362 - #4 }
+INFO  14:55:42,363 - #4 }
+INFO  14:55:42,364 - Syntax analysis finished
+INFO  14:55:42,364 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    EmptyDeclarationList(
+    ) [EmptyDeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         dada
+        ) [Type]
+        OneVariableName(
+          VariableIdent(
+           d
+          ) [VariableIdent]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      EmptyStatements(
+      ) [EmptyStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 14:55:42,373 - Nije pronadjen tip dada u tabeli simbola! 
+ERROR 14:55:42,373 - In function  main na liniji 7
+INFO  14:55:42,374 - Semantic analysis finished
+ERROR 14:55:42,374 - Parsiranje nije uspesno zavrseno!

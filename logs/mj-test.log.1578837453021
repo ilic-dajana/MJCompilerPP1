@@ -1,0 +1,34 @@
+INFO  14:57:20,614 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:57:20,642 - #2 program
+INFO  14:57:20,642 - #39 test
+INFO  14:57:20,642 - #39 int
+INFO  14:57:20,643 - #5 ;
+ERROR 14:57:20,644 - 
+Sintaksna greska na liniji 2
+INFO  14:57:20,644 - #39 char
+INFO  14:57:20,644 - #39 a
+INFO  14:57:20,644 - #22 ,
+ERROR 14:57:20,644 - intern variable declaration error recovery: successful
+INFO  14:57:20,645 - #5 ;
+ERROR 14:57:20,645 - 
+Sintaksna greska na liniji 3
+INFO  14:57:20,645 - #3 {
+INFO  14:57:20,645 - #24 void
+INFO  14:57:20,645 - #39 main
+ERROR 14:57:20,646 - intern variable declaration error recovery: successful
+INFO  14:57:20,647 - #17 (
+INFO  14:57:20,647 - #18 )
+INFO  14:57:20,647 - #39 int
+INFO  14:57:20,648 - #39 a
+INFO  14:57:20,648 - #22 ,
+INFO  14:57:20,648 - #39 b
+INFO  14:57:20,648 - #5 ;
+INFO  14:57:20,648 - #3 {
+INFO  14:57:20,648 - #35 =
+ERROR 14:57:20,648 - 
+Sintaksna greska na liniji 11
+INFO  14:57:20,648 - #39 b
+INFO  14:57:20,648 - #5 ;
+INFO  14:57:20,648 - #4 }
+INFO  14:57:20,648 - #4 }
+ERROR 14:57:20,649 - Fatalna greska, parsiranje se ne moze nastaviti na liniji 13

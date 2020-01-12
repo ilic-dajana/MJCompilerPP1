@@ -1,0 +1,204 @@
+INFO  14:59:37,833 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:59:37,871 - #2 program
+INFO  14:59:37,871 - #39 test
+INFO  14:59:37,871 - #39 int
+INFO  14:59:37,871 - #5 ;
+ERROR 14:59:37,872 - 
+Sintaksna greska na liniji 2
+INFO  14:59:37,872 - #39 char
+INFO  14:59:37,872 - #39 a
+INFO  14:59:37,872 - #22 ,
+ERROR 14:59:37,873 - intern variable declaration error recovery: successful
+INFO  14:59:37,874 - #5 ;
+ERROR 14:59:37,874 - 
+Sintaksna greska na liniji 3
+INFO  14:59:37,874 - #3 {
+INFO  14:59:37,874 - #24 void
+INFO  14:59:37,874 - #39 test
+ERROR 14:59:37,874 - intern variable declaration error recovery: successful
+INFO  14:59:37,876 - #17 (
+INFO  14:59:37,876 - #39 int
+INFO  14:59:37,876 - #18 )
+ERROR 14:59:37,876 - 
+Sintaksna greska na liniji 6
+INFO  14:59:37,876 - #3 {
+INFO  14:59:37,877 - #4 }
+INFO  14:59:37,877 - #24 void
+ERROR 14:59:37,877 - formal parameter error recovery: successful
+INFO  14:59:37,878 - #39 main
+INFO  14:59:37,878 - #17 (
+INFO  14:59:37,878 - #18 )
+INFO  14:59:37,878 - #39 int
+INFO  14:59:37,878 - #39 a
+INFO  14:59:37,878 - #22 ,
+INFO  14:59:37,878 - #39 i
+INFO  14:59:37,879 - #5 ;
+INFO  14:59:37,879 - #3 {
+INFO  14:59:37,879 - #39 a
+INFO  14:59:37,879 - #35 =
+INFO  14:59:37,880 - #5 ;
+ERROR 14:59:37,880 - 
+Sintaksna greska na liniji 12
+INFO  14:59:37,880 - #39 i
+INFO  14:59:37,880 - #35 =
+INFO  14:59:37,880 - #38 0
+ERROR 14:59:37,880 - assign statement error recovery: successful
+INFO  14:59:37,881 - #5 ;
+INFO  14:59:37,882 - #10 for
+INFO  14:59:37,882 - #17 (
+INFO  14:59:37,882 - #5 ;
+INFO  14:59:37,883 - #39 i
+INFO  14:59:37,883 - #29 <
+INFO  14:59:37,883 - #5 ;
+ERROR 14:59:37,883 - 
+Sintaksna greska na liniji 15
+INFO  14:59:37,883 - #18 )
+INFO  14:59:37,883 - #3 {
+INFO  14:59:37,883 - #4 }
+ERROR 14:59:37,884 - for condition  error recovery: successful
+INFO  14:59:37,884 - #4 }
+INFO  14:59:37,885 - #4 }
+INFO  14:59:37,886 - Syntax analysis finished
+INFO  14:59:37,887 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            ErrorVarNames(
+            ) [ErrorVarNames]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         char
+        ) [Type]
+        MultipleVariableNames(
+          OneVariableName(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [OneVariableName]
+          ErrorVarNames(
+          ) [ErrorVarNames]
+        ) [MultipleVariableNames]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    MultipleMethodDeclarations(
+      EmptyMethodDeclaration(
+      ) [EmptyMethodDeclaration]
+      MethodDeclaration(
+        MethodIdent(
+          VoidType(
+          ) [VoidType]
+         test
+        ) [MethodIdent]
+        FormalParameters(
+          OneFormalParameter(
+            ParameterError(
+            ) [ParameterError]
+          ) [OneFormalParameter]
+        ) [FormalParameters]
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        EmptyStatements(
+        ) [EmptyStatements]
+      ) [MethodDeclaration]
+    ) [MultipleMethodDeclarations]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      MultipleVariableDeclarations(
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          MultipleVariableNames(
+            OneVariableName(
+              VariableIdent(
+               a
+              ) [VariableIdent]
+            ) [OneVariableName]
+            VariableIdent(
+             i
+            ) [VariableIdent]
+          ) [MultipleVariableNames]
+        ) [VariableDeclaration]
+      ) [MultipleVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          MultipleStatements(
+            EmptyStatements(
+            ) [EmptyStatements]
+            DesignatorStatements(
+              AssignDesignator(
+                ErrorAssign(
+                ) [ErrorAssign]
+              ) [AssignDesignator]
+            ) [DesignatorStatements]
+          ) [MultipleStatements]
+          DesignatorStatements(
+            AssignDesignator(
+              AssignStatementSttm(
+                Designator(
+                  DesignatorIdent(
+                   i
+                  ) [DesignatorIdent]
+                  EmptyDesignator(
+                  ) [EmptyDesignator]
+                ) [Designator]
+                Expression(
+                  OneAddExpression(
+                    OneMulFactor(
+                      NumConstF(
+                       0
+                      ) [NumConstF]
+                    ) [OneMulFactor]
+                  ) [OneAddExpression]
+                ) [Expression]
+              ) [AssignStatementSttm]
+            ) [AssignDesignator]
+          ) [DesignatorStatements]
+        ) [MultipleStatements]
+        FORStatement(
+          ForIdent(
+          ) [ForIdent]
+          EmptyForInit(
+          ) [EmptyForInit]
+          ForConditionrError(
+          ) [ForConditionrError]
+          EmptyForEnd(
+          ) [EmptyForEnd]
+          StatementBlock(
+            EmptyStatements(
+            ) [EmptyStatements]
+          ) [StatementBlock]
+        ) [FORStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 14:59:37,895 - In function  test na liniji 6
+ERROR 14:59:37,895 - In function  main na liniji 9
+INFO  14:59:37,895 - Semantic analysis finished
+ERROR 14:59:37,896 - Parsiranje nije uspesno zavrseno!

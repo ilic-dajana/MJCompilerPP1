@@ -1,0 +1,172 @@
+INFO  16:45:07,178 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  16:45:07,213 - #2 program
+INFO  16:45:07,213 - #39 test
+INFO  16:45:07,213 - #39 int
+INFO  16:45:07,213 - #39 a
+INFO  16:45:07,214 - #5 ;
+INFO  16:45:07,214 - #39 char
+INFO  16:45:07,214 - #39 a
+INFO  16:45:07,214 - #22 ,
+INFO  16:45:07,214 - #39 b
+INFO  16:45:07,215 - #5 ;
+INFO  16:45:07,215 - #3 {
+INFO  16:45:07,215 - #24 void
+INFO  16:45:07,215 - #39 test
+INFO  16:45:07,215 - #17 (
+INFO  16:45:07,216 - #39 int
+INFO  16:45:07,216 - #39 a
+INFO  16:45:07,216 - #18 )
+INFO  16:45:07,216 - #3 {
+INFO  16:45:07,217 - #4 }
+INFO  16:45:07,217 - #24 void
+INFO  16:45:07,217 - #39 main
+INFO  16:45:07,218 - #17 (
+INFO  16:45:07,218 - #18 )
+INFO  16:45:07,218 - #39 int
+INFO  16:45:07,218 - #39 i
+INFO  16:45:07,218 - #5 ;
+INFO  16:45:07,218 - #3 {
+INFO  16:45:07,218 - #23 print
+INFO  16:45:07,218 - #17 (
+INFO  16:45:07,219 - #38 3
+INFO  16:45:07,219 - #22 ,
+INFO  16:45:07,219 - #38 3
+INFO  16:45:07,219 - #18 )
+INFO  16:45:07,219 - #5 ;
+INFO  16:45:07,219 - #23 print
+INFO  16:45:07,219 - #17 (
+INFO  16:45:07,219 - #38 4
+INFO  16:45:07,219 - #22 ,
+INFO  16:45:07,220 - #38 4
+INFO  16:45:07,220 - #18 )
+INFO  16:45:07,220 - #5 ;
+INFO  16:45:07,220 - #4 }
+INFO  16:45:07,220 - #4 }
+INFO  16:45:07,220 - Syntax analysis finished
+INFO  16:45:07,221 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    DeclarationList(
+      EmptyDeclarationList(
+      ) [EmptyDeclarationList]
+      VarDeclaration(
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [VarDeclaration]
+    ) [DeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         char
+        ) [Type]
+        MultipleVariableNames(
+          OneVariableName(
+            VariableIdent(
+             a
+            ) [VariableIdent]
+          ) [OneVariableName]
+          VariableIdent(
+           b
+          ) [VariableIdent]
+        ) [MultipleVariableNames]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    MultipleMethodDeclarations(
+      EmptyMethodDeclaration(
+      ) [EmptyMethodDeclaration]
+      MethodDeclaration(
+        MethodIdent(
+          VoidType(
+          ) [VoidType]
+         test
+        ) [MethodIdent]
+        FormalParameters(
+          OneFormalParameter(
+            UsualParameter(
+              Type(
+               int
+              ) [Type]
+             a
+            ) [UsualParameter]
+          ) [OneFormalParameter]
+        ) [FormalParameters]
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        EmptyStatements(
+        ) [EmptyStatements]
+      ) [MethodDeclaration]
+    ) [MultipleMethodDeclarations]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      MultipleVariableDeclarations(
+        EmptyVariableDeclarations(
+        ) [EmptyVariableDeclarations]
+        VariableDeclaration(
+          Type(
+           int
+          ) [Type]
+          OneVariableName(
+            VariableIdent(
+             i
+            ) [VariableIdent]
+          ) [OneVariableName]
+        ) [VariableDeclaration]
+      ) [MultipleVariableDeclarations]
+      MultipleStatements(
+        MultipleStatements(
+          EmptyStatements(
+          ) [EmptyStatements]
+          PrintMultipleStatement(
+            Expression(
+              OneAddExpression(
+                OneMulFactor(
+                  NumConstF(
+                   3
+                  ) [NumConstF]
+                ) [OneMulFactor]
+              ) [OneAddExpression]
+            ) [Expression]
+           3
+          ) [PrintMultipleStatement]
+        ) [MultipleStatements]
+        PrintMultipleStatement(
+          Expression(
+            OneAddExpression(
+              OneMulFactor(
+                NumConstF(
+                 4
+                ) [NumConstF]
+              ) [OneMulFactor]
+            ) [OneAddExpression]
+          ) [Expression]
+         4
+        ) [PrintMultipleStatement]
+      ) [MultipleStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 16:45:07,228 - In function  test na liniji 6
+ERROR 16:45:07,229 - Formal parameter found a na liniji 6
+ERROR 16:45:07,229 - In function  main na liniji 9
+INFO  16:45:07,229 - Semantic analysis finished
+INFO  16:45:07,230 - Writing bytecode
+INFO  16:45:07,230 - Overwriting byte file
+INFO  16:45:07,232 - Parsiranje  uspesno zavrseno!

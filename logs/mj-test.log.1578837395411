@@ -1,0 +1,57 @@
+INFO  14:56:12,952 - Compiling source file: /home/dajana/pp1projekat/workspace/MJCompiler/test/program.mj
+INFO  14:56:12,985 - #2 program
+INFO  14:56:12,985 - #39 test
+INFO  14:56:12,986 - #39 int
+INFO  14:56:12,986 - #5 ;
+ERROR 14:56:12,987 - 
+Sintaksna greska na liniji 2
+INFO  14:56:12,987 - #3 {
+INFO  14:56:12,987 - #24 void
+INFO  14:56:12,987 - #39 main
+ERROR 14:56:12,988 - intern variable declaration error recovery: successful
+INFO  14:56:12,990 - #17 (
+INFO  14:56:12,990 - #18 )
+INFO  14:56:12,990 - #3 {
+INFO  14:56:12,991 - #4 }
+INFO  14:56:12,991 - #4 }
+INFO  14:56:12,992 - Syntax analysis finished
+INFO  14:56:12,993 - Program(
+  ProgramIdent(
+   test
+  ) [ProgramIdent]
+  DeclarationList(
+    EmptyDeclarationList(
+    ) [EmptyDeclarationList]
+    VarDeclaration(
+      VariableDeclaration(
+        Type(
+         int
+        ) [Type]
+        OneVariableName(
+          ErrorVarNames(
+          ) [ErrorVarNames]
+        ) [OneVariableName]
+      ) [VariableDeclaration]
+    ) [VarDeclaration]
+  ) [DeclarationList]
+  MultipleMethodDeclarations(
+    EmptyMethodDeclaration(
+    ) [EmptyMethodDeclaration]
+    MethodDeclaration(
+      MethodIdent(
+        VoidType(
+        ) [VoidType]
+       main
+      ) [MethodIdent]
+      EmptyFormalParameters(
+      ) [EmptyFormalParameters]
+      EmptyVariableDeclarations(
+      ) [EmptyVariableDeclarations]
+      EmptyStatements(
+      ) [EmptyStatements]
+    ) [MethodDeclaration]
+  ) [MultipleMethodDeclarations]
+) [Program]
+ERROR 14:56:12,999 - In function  main na liniji 7
+INFO  14:56:13,000 - Semantic analysis finished
+ERROR 14:56:13,000 - Parsiranje nije uspesno zavrseno!

@@ -29,6 +29,7 @@ parser code {:
 		    	if (info instanceof Symbol)
 		            msg.append (" na liniji ").append(((Symbol)info).left);
 		        log.error(msg.toString());
+		        System.err(msg.toString());
 	   }
 	   
 	   public void report_info(String message, Object info){
